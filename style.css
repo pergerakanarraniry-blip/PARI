@@ -53,7 +53,7 @@ nav {
     font-size: 1rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-family: Arial, sans-serif; /* Logo tetap sans-serif agar kontras */
+    font-family: Arial, sans-serif;
 }
 
 .nav-links {
@@ -79,13 +79,13 @@ nav {
 .hero {
     padding: 120px 0;
     text-align: center;
-    border-bottom: 1px double #444; /* Garis ganda khas dokumen resmi */
+    border-bottom: 1px double #444;
 }
 
 .hero h1 {
     font-size: 2.8rem;
     font-weight: normal;
-    font-style: italic; /* Gaya judul publikasi klasik */
+    font-style: italic;
     margin-bottom: 15px;
 }
 
@@ -141,6 +141,14 @@ h2 {
     display: flex;
     gap: 30px;
     align-items: baseline;
+    transition: 0.3s;
+}
+
+/* Log Item Prioritas (Kekerasan Seksual / Darurat) */
+.log-item.priority {
+    border-left: 2px solid #4a0000;
+    padding-left: 20px;
+    background: rgba(74, 0, 0, 0.05);
 }
 
 .date {
@@ -153,16 +161,21 @@ h2 {
 /* --- Karya Grid --- */
 .karya-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 kolom simetris */
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
     margin-top: 50px;
 }
 
 .karya-card {
-    border-top: 1px solid #ffffff; /* Garis atas saja seperti daftar pustaka */
+    border-top: 1px solid #ffffff;
     padding-top: 20px;
     text-align: left;
     transition: 0.3s;
+}
+
+/* Highlight Khusus untuk Dokumen Etika/Urgensi */
+.karya-card.highlight-urgent {
+    border-top: 2px solid #4a0000;
 }
 
 .karya-card:hover {
@@ -234,9 +247,11 @@ footer {
 
 /* --- Mobile View --- */
 @media (max-width: 768px) {
+    .container { width: 90%; }
     .karya-grid { grid-template-columns: 1fr; }
     .log-item { flex-direction: column; gap: 5px; }
     .hero h1 { font-size: 1.8rem; }
     nav { flex-direction: column; gap: 20px; }
     .logo-text { font-size: 0.7rem; text-align: center; }
+    .secure-box { width: 100%; }
 }
