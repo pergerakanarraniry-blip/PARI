@@ -3,62 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARSIP.003/TKT | Protokol Nalar Otonom</title>
+    <title>[DOKUMEN.003/TKT] PROTOKOL NALAR OTONOM</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* CSS Tambahan khusus halaman dokumen agar terlihat seperti surat resmi/manuskrip */
-        .document-body {
-            background: #0a0a0a;
+        /* Gaya Khusus Dokumen Manuskrip */
+        .document-container {
+            background-color: #050505;
             border: 1px solid #222;
-            padding: 60px;
-            margin-top: 50px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            padding: 60px 50px;
+            margin: 50px auto;
+            max-width: 850px;
+            box-shadow: 0 0 100px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
         }
-        .stamp {
-            border: 2px solid #4a0000;
-            color: #4a0000;
-            padding: 10px;
+
+        /* Watermark Latar Belakang */
+        .document-container::before {
+            content: "PARI-CONFIDENTIAL";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 8rem;
+            color: rgba(255, 255, 255, 0.02);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .doc-header {
+            border-bottom: 2px solid #fff;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            font-family: Arial, sans-serif;
+        }
+
+        .classification {
             display: inline-block;
-            transform: rotate(-15deg);
+            background: #4a0000;
+            color: #fff;
+            padding: 5px 15px;
             font-weight: bold;
-            margin-bottom: 30px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+        }
+
+        .quote-box {
+            border-left: 4px solid #fff;
+            padding: 20px 30px;
+            margin: 40px 0;
+            background: rgba(255, 255, 255, 0.03);
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+
+        .section-title {
+            font-family: Arial, sans-serif;
             text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #fff;
+            margin-top: 50px;
+            border-bottom: 1px solid #333;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .sub-point {
+            margin-top: 25px;
+            padding-left: 20px;
+            border-left: 1px solid #444;
+        }
+
+        .sub-point strong {
+            color: #fff;
+            display: block;
+            margin-bottom: 5px;
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .footer-sign {
+            margin-top: 80px;
+            text-align: right;
+            font-family: 'Courier New', Courier, monospace;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+        }
+
+        .back-nav {
+            margin: 30px 0;
+            display: block;
+            color: #888;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .back-nav:hover { color: #fff; }
+
+        @media (max-width: 768px) {
+            .document-container { padding: 30px 20px; margin: 20px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header style="border:none; background:none;">
-            <a href="index.html" style="color:#fff; text-decoration:none; font-family:Arial;">← KEMBALI KE ARSIP</a>
-        </header>
 
-        <main class="document-body">
-            <div class="stamp">Klasifikasi: Otonom</div>
-            
-            <section class="doc-header">
-                <p><strong>NOMOR REFERENSI:</strong> DOKUMEN.003/TKT/2026</p>
-                <p><strong>PERIHAL:</strong> Protokol Pengorganisasian Tanpa Panggung</p>
-                <hr style="margin: 20px 0; border: 0; border-top: 1px double #444;">
+    <div class="container">
+        <a href="index.html" class="back-nav">← KEMBALI KE TERMINAL ARSIP</a>
+
+        <main class="document-container">
+            <header class="doc-header">
+                <div class="classification">KLASIFIKASI: INTERNAL / OTONOM</div>
+                <p><strong>NOMOR REFERENSI:</strong> DOKUMEN.003/TKT</p>
+                <p><strong>SUBJEK:</strong> Metodologi Dekonstruksi Otoritas & Pengorganisasian Akar Rumput</p>
+            </header>
+
+            <div class="quote-box">
+                "Pendidikan adalah senjata, yang efeknya tergantung pada siapa yang memegangnya dan kepada siapa senjata itu diarahkan." 
+                <br>— <span style="font-weight: bold; color: #fff;">Joseph Stalin</span>
+            </div>
+
+            <section>
+                <h2 class="section-title">I. Prolog: Menggugat Kepatuhan Buta</h2>
+                <div class="text-block">
+                    <p>Kampus bukan lagi kawah candradimuka intelektual; ia telah bermutasi menjadi pabrik kepatuhan. Mahasiswa dicetak bukan untuk berpikir, melainkan untuk melayani mesin birokrasi dan pasar. Di bawah lampu-lampu neon ruang kelas, nalar kritis sedang sekarat. Protokol ini bukan sekadar panduan diskusi; ini adalah cetak biru untuk merebut kembali kedaulatan nalar yang telah digadaikan kepada penguasa kampus.</p>
+                    <p>Kita berdiri di atas warisan <strong>Paulo Freire</strong>, yang mengingatkan bahwa <em>"Manusia yang terjajah hanya akan merasa bebas jika mereka bisa meniru si penjajah."</em> Kita menolak imitasi itu. Kita menolak menjadi budak-budak intelektual yang hanya mahir mengutip tanpa mampu menggugat.</p>
+                </div>
             </section>
 
-            <article class="text-block">
-                <h3>I. Premis Dasar</h3>
-                <p>Kekuatan tidak lagi berada pada podium-podium formal yang mudah diawasi dan dibungkam. Kekuatan sejati PARI terletak pada nalar yang tersebar—fragmentasi yang terorganisir.</p>
+            <section>
+                <h2 class="section-title">II. Strategi Sel Diskusi Terfragmentasi</h2>
+                <p style="font-style: italic; color: #888; margin-top: 10px;">Metode Rhizome: Menjalar, muncul di mana-mana, tanpa pusat tunggal.</p>
+                
+                <div class="sub-point">
+                    <strong>Unit Sel 3-5</strong>
+                    <p>Jangan menunggu massa besar. Mulailah dengan sel kecil berjumlah tiga hingga lima orang. Sebagaimana Lenin membangun <em>Iskra</em>, sebuah sel kecil yang solid lebih berbahaya daripada kerumunan tanpa arah.</p>
+                </div>
 
-                <h3>II. Sel Diskusi Kantin (Metode Sudut Senyap)</h3>
-                <p>Gunakan ruang-ruang paling bising untuk membicarakan hal-hal paling krusial. Diskusi tidak perlu moderator formal. Cukup tiga orang, satu buku, dan kegelisahan yang sama.</p>
+                <div class="sub-point">
+                    <strong>Otonomi Ruang</strong>
+                    <p>Kantin, emperan fakultas, hingga sudut remang perpustakaan adalah zona otonom kita. Jika mereka menutup ruang formal, jadikan setiap jengkal tanah sebagai mimbar bebas.</p>
+                </div>
 
-                <h3>III. Jaringan Tanpa Wajah</h3>
-                <p>Identitas adalah beban. Fokuslah pada penyebaran gagasan, bukan pengenalan persona. Jika satu sel dibubarkan, nalar tetap hidup di sel yang lain.</p>
+                <div class="sub-point">
+                    <strong>Doktrin Literasi</strong>
+                    <p>Setiap pertemuan wajib membedah satu teks "berbahaya". Jangan hanya membaca diktat dosen. Baca Gramsci, pahami bagaimana hegemoni bekerja, dan temukan cara untuk meruntuhkannya dari dalam.</p>
+                </div>
+            </section>
 
-                <h3>IV. Instruksi Penulisan</h3>
-                <p>Setiap anggota adalah penulis. Gunakan mading, selebaran tangan, atau coretan di dinding belakang buku perpustakaan untuk meninggalkan jejak pemikiran.</p>
-            </article>
+            <section>
+                <h2 class="section-title">III. Dekonstruksi Hegemoni Birokrasi</h2>
+                <div class="text-block">
+                    <p><strong>Antonio Gramsci</strong> menyatakan bahwa penguasa mempertahankan kontrol bukan hanya melalui kekerasan, tetapi melalui konsensus intelektual (kurikulum/peraturan). PARI harus menjadi "intelektual organik" yang membongkar konsensus ini.</p>
+                </div>
+                
+                <div class="sub-point">
+                    <strong>Audit Nalar</strong>
+                    <p>Pertanyakan setiap regulasi. Apakah aturan ini untuk ketertiban akademik, atau untuk membungkam kritik?</p>
+                </div>
 
-            <div class="secure-box" style="margin-top:50px;">
-                "Jadilah virus bagi sistem yang membusuk."
-            </div>
+                <div class="sub-point">
+                    <strong>Sabotase Simbolik</strong>
+                    <p>Lawan narasi birokrasi dengan narasi tandingan. Jika mereka memasang poster "Prestasi", pasanglah pamflet tentang "Transparansi Dana". Gunakan bahasa yang tajam, lugas, dan menusuk jantung kemunafikan.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">IV. Taktik Organisasi Tanpa Wajah</h2>
+                <div class="quote-box" style="font-size: 1rem;">
+                    "Revolusi tidak dibuat oleh satu orang, tetapi oleh massa yang sadar." — Rosa Luxemburg
+                </div>
+
+                <div class="sub-point">
+                    <strong>Anonimitas Strategis</strong>
+                    <p>Gunakan simbol PARI sebagai identitas tunggal. Jangan mencari panggung. Biarkan gagasan kita yang bicara, sementara kita tetap bergerak dalam bayang.</p>
+                </div>
+
+                <div class="sub-point">
+                    <strong>Distribusi Informasi Fisik</strong>
+                    <p>Di era pengawasan digital, kertas fisik adalah teknologi perlawanan yang ampuh. Selebaran tangan, tulisan di toilet, dan catatan di dalam buku perpustakaan adalah jalur komunikasi yang tak bisa disadap oleh algoritma.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">V. Protokol Aksi: B-L-S-T</h2>
+                <div class="text-block">
+                    <p><strong>BACA:</strong> Hancurkan kebodohan yang dipelihara secara sistematis.</p>
+                    <p><strong>LAWAN:</strong> Tolak setiap bentuk intimidasi moral dan akademik yang mengebiri nalar.</p>
+                    <p><strong>SUARAKAN:</strong> Jadilah penyambung lidah bagi mereka yang dibungkam oleh birokrasi.</p>
+                    <p><strong>TULIS:</strong> Abadikan setiap pengkhianatan birokrasi dalam arsip digital dan fisik agar tidak menguap dimakan zaman.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">VI. Epilog: Kita Adalah Anomali</h2>
+                <div class="text-block">
+                    <p>Kita tidak mencari validasi dari dekanat. Kita tidak butuh stempel legalitas dari rektorat. Legalitas kita lahir dari kebenaran yang kita perjuangkan. Sebagaimana <strong>Tan Malaka</strong> pernah berteriak: <em>"Ingatlah! Bahwa dari dalam kubur, suara saya akan lebih keras daripada dari atas bumi!"</em></p>
+                    <p>Biarlah mereka menganggap kita hantu. Karena hantu tidak bisa mati, dan hantu akan terus menghantui tidur nyenyak para penindas.</p>
+                </div>
+            </section>
+
+            <footer class="footer-sign">
+                <p>Bandar Aceh Darussalam, 11 Mei 2026</p>
+                <p style="font-weight: bold; letter-spacing: 2px; color: #fff;">DEWAN NALAR OTONOM — PARI</p>
+            </footer>
         </main>
     </div>
+
 </body>
 </html>
