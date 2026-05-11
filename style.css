@@ -6,25 +6,24 @@
 }
 
 body {
-    /* Menggunakan font Serif untuk kesan akademis dan intelektual */
     font-family: 'Times New Roman', Times, serif;
     background-color: #000000;
     color: #ffffff;
-    line-height: 1.8; /* Spasi baris lebih lebar khas jurnal */
+    line-height: 1.8;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
 }
 
 .container {
     width: 85%;
-    max-width: 900px; /* Lebih ramping agar fokus saat membaca */
+    max-width: 900px;
     margin: 0 auto;
 }
 
 /* --- Navigation --- */
 header {
     background: #000000;
-    border-bottom: 1px solid #ffffff; /* Garis lebih tipis & elegan */
+    border-bottom: 1px solid #ffffff;
     padding: 20px 0;
     position: sticky;
     top: 0;
@@ -50,7 +49,7 @@ nav {
 
 .logo-text {
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.9rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     font-family: Arial, sans-serif;
@@ -69,10 +68,11 @@ nav {
     letter-spacing: 1px;
     text-transform: uppercase;
     font-family: Arial, sans-serif;
+    transition: 0.3s;
 }
 
 .nav-links a:hover {
-    text-decoration: underline;
+    opacity: 0.6;
 }
 
 /* --- Hero Section --- */
@@ -83,16 +83,17 @@ nav {
 }
 
 .hero h1 {
-    font-size: 2.8rem;
+    font-size: 3rem;
     font-weight: normal;
     font-style: italic;
     margin-bottom: 15px;
+    letter-spacing: 2px;
 }
 
 .hero p {
     font-family: Arial, sans-serif;
     font-size: 0.9rem;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
     text-transform: uppercase;
     color: #888;
 }
@@ -103,120 +104,182 @@ nav {
 }
 
 h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     text-transform: uppercase;
-    letter-spacing: 4px;
-    margin-bottom: 50px;
+    letter-spacing: 5px;
+    margin-bottom: 60px;
     text-align: center;
-    display: block;
-    width: 100%;
+    font-family: Arial, sans-serif;
 }
 
 .text-block {
-    max-width: 100%;
-    margin-bottom: 40px;
     text-align: justify;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
+    margin-bottom: 50px;
 }
 
 .secure-box {
     border: 1px solid #ffffff;
-    padding: 25px;
+    padding: 20px;
     text-align: center;
-    margin: 0 auto;
-    display: block;
-    max-width: 400px;
-    font-style: italic;
+    margin: 40px auto;
+    max-width: 500px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: 4px;
     background: transparent;
 }
 
-/* --- Log Aktivitas (Gaya Indeks Arsip) --- */
-.log-list {
-    max-width: 100%;
-}
-
+/* --- Log Aktivitas --- */
 .log-item {
-    padding: 20px 0;
+    padding: 25px 0;
     border-bottom: 1px solid #222;
     display: flex;
-    gap: 30px;
-    align-items: baseline;
+    gap: 40px;
     transition: 0.3s;
 }
 
-/* Log Item Prioritas (Kekerasan Seksual / Darurat) */
 .log-item.priority {
-    border-left: 2px solid #4a0000;
-    padding-left: 20px;
-    background: rgba(74, 0, 0, 0.05);
+    border-left: 3px solid #4a0000;
+    padding-left: 25px;
+    background: rgba(74, 0, 0, 0.1);
 }
 
 .date {
     font-family: Arial, sans-serif;
     font-size: 0.8rem;
-    min-width: 120px;
-    color: #888;
+    min-width: 130px;
+    color: #666;
 }
 
-/* --- Karya Grid --- */
+/* --- Arsitektur Kartu Ikonik (Karya Grid) --- */
 .karya-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 30px;
     margin-top: 50px;
 }
 
 .karya-card {
-    border-top: 1px solid #ffffff;
-    padding-top: 20px;
-    text-align: left;
-    transition: 0.3s;
+    position: relative;
+    background: #050505;
+    border: 1px solid #222;
+    padding: 45px 35px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-/* Highlight Khusus untuk Dokumen Etika/Urgensi */
-.karya-card.highlight-urgent {
-    border-top: 2px solid #4a0000;
+/* Nomor Seri Samur di Belakang */
+.karya-card::after {
+    content: "P-ARI";
+    position: absolute;
+    right: -15px;
+    bottom: -20px;
+    font-size: 6rem;
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    z-index: 0;
+    transition: 0.6s;
+    pointer-events: none;
 }
 
 .karya-card:hover {
-    opacity: 0.7;
+    border-color: #ffffff;
+    transform: translateY(-10px);
+    background: #0c0c0c;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+}
+
+.karya-card:hover::after {
+    color: rgba(255, 255, 255, 0.07);
+    right: 20px;
 }
 
 .karya-card span {
-    font-family: Arial, sans-serif;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    color: #666;
+    position: relative;
+    z-index: 1;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75rem;
+    color: #555;
+    letter-spacing: 2px;
 }
 
 .karya-card h3 {
-    margin: 10px 0;
-    font-size: 1.4rem;
+    position: relative;
+    z-index: 1;
+    margin: 15px 0;
+    font-size: 1.5rem;
     font-weight: normal;
+    color: #ffffff;
     text-decoration: underline;
+    text-underline-offset: 5px;
 }
 
+.karya-card p {
+    position: relative;
+    z-index: 1;
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+/* Tombol Akses Ikonik */
 .btn-link {
+    position: relative;
+    z-index: 1;
     display: inline-block;
-    margin-top: 15px;
+    padding: 12px 25px;
     font-family: Arial, sans-serif;
     font-size: 0.75rem;
-    color: #ffffff;
-    text-decoration: none;
-    border-bottom: 1px solid #ffffff;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 1px solid #333;
+    transition: 0.3s;
+    text-align: center;
 }
 
-/* --- Kontak & Instruksi --- */
+.karya-card:hover .btn-link {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+/* Gaya Khusus Dokumen Urgen */
+.karya-card.highlight-urgent {
+    border-left: 5px solid #4a0000;
+}
+
+.karya-card.highlight-urgent:hover {
+    border-left: 5px solid #ff0000;
+    box-shadow: -10px 10px 40px rgba(255, 0, 0, 0.05);
+}
+
+.karya-card.highlight-urgent:hover .btn-link {
+    background: #ff0000;
+    border-color: #ff0000;
+    color: #ffffff;
+}
+
+/* --- Kontak & Footer --- */
 .instruction-box {
     border: 1px solid #ffffff;
     padding: 40px;
     margin: 40px 0;
+    line-height: 1.6;
 }
 
 .warning-text {
     font-family: Arial, sans-serif;
     font-weight: bold;
-    color: #ffffff;
+    letter-spacing: 2px;
     margin-bottom: 15px;
     display: block;
 }
@@ -224,19 +287,19 @@ h2 {
 .protocol ul {
     list-style-type: square;
     padding-left: 20px;
+    margin-top: 20px;
 }
 
 .motto {
-    margin-top: 60px;
-    font-size: 1.2rem;
+    margin-top: 80px;
+    font-size: 1.3rem;
     text-align: center;
     font-style: italic;
-    color: #888;
+    color: #666;
 }
 
-/* --- Footer --- */
 footer {
-    padding: 60px 0;
+    padding: 80px 0;
     border-top: 1px solid #222;
     text-align: center;
     font-family: Arial, sans-serif;
@@ -249,9 +312,9 @@ footer {
 @media (max-width: 768px) {
     .container { width: 90%; }
     .karya-grid { grid-template-columns: 1fr; }
-    .log-item { flex-direction: column; gap: 5px; }
-    .hero h1 { font-size: 1.8rem; }
-    nav { flex-direction: column; gap: 20px; }
+    .log-item { flex-direction: column; gap: 10px; }
+    .hero h1 { font-size: 2rem; }
+    nav { flex-direction: column; gap: 25px; }
     .logo-text { font-size: 0.7rem; text-align: center; }
-    .secure-box { width: 100%; }
+    .secure-box { width: 100%; letter-spacing: 2px; }
 }
