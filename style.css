@@ -1,0 +1,109 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    margin: 0;
+    line-height: 1.6;
+}
+
+header {
+    padding: 10px 10%; /* Sedikit dikurangi agar tidak terlalu lebar setelah ada logo */
+    background: #121212;
+    border-bottom: 1px solid #333;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Pengaturan Logo Baru */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.main-logo {
+    height: 50px; /* Ukuran tinggi logo */
+    width: auto;
+    filter: invert(1); /* Mengubah logo hitam menjadi putih agar kontras */
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: #00ff41; /* Hijau Matrix */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00ff41;
+}
+
+.hero {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.content {
+    padding: 60px 20%;
+    text-align: center;
+}
+
+.secure-box {
+    border: 1px dashed #00ff41;
+    padding: 15px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* Penyesuaian khusus untuk instruksi mading */
+.secure-box strong {
+    color: #ff4141; /* Warna merah untuk peringatan/instruksi */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 600px) {
+    .content {
+        padding: 40px 10%;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
