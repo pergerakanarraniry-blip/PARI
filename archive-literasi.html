@@ -3,55 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIBLIOTEKA | Perpustakaan Bayangan</title>
+    <title>BIBLIOTEKA | Perpustakaan Bayangan PARI</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .book-list { margin-top: 30px; }
-        .book-item {
-            margin-bottom: 40px;
-            padding-left: 20px;
-            border-left: 1px solid #333;
+        /* Estetika Perpustakaan Bayangan */
+        .biblioteka-container {
+            background-color: #080808;
+            border: 1px solid #1a1510;
+            padding: 60px 50px;
+            margin: 50px auto;
+            max-width: 900px;
+            box-shadow: 0 0 60px rgba(212, 175, 55, 0.05);
+            position: relative;
         }
-        .book-title { font-style: italic; font-size: 1.4rem; color: #fff; }
-        .book-author { font-family: Arial; font-size: 0.8rem; color: #888; text-transform: uppercase; }
+
+        .biblioteka-container::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, #d4af37, transparent);
+        }
+
+        .ref-code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #d4af37;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        h1.gold-title {
+            font-family: 'Times New Roman', serif;
+            font-size: 3rem;
+            font-style: italic;
+            color: #fff;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 30px;
+        }
+
+        /* Daftar Buku */
+        .book-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .book-entry {
+            padding-left: 30px;
+            border-left: 2px solid #d4af37;
+            transition: 0.3s;
+        }
+
+        .book-entry:hover {
+            border-left: 2px solid #fff;
+            transform: translateX(10px);
+        }
+
+        .author {
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .book-title {
+            font-size: 1.6rem;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        /* Seksi Tautan Eksternal */
+        .external-links {
+            background: rgba(212, 175, 55, 0.03);
+            border: 1px solid #222;
+            padding: 40px;
+            margin-top: 80px;
+        }
+
+        .external-links h3 {
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            color: #d4af37;
+        }
+
+        .link-item {
+            display: block;
+            color: #eee;
+            text-decoration: none;
+            padding: 15px 0;
+            border-bottom: 1px solid #1a1a1a;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .link-item:hover {
+            color: #d4af37;
+            padding-left: 15px;
+        }
+
+        .link-item span {
+            float: right;
+            color: #444;
+            font-size: 0.7rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin: 40px 0;
+            color: #666;
+            text-decoration: none;
+            font-family: Arial;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover { color: #fff; }
+
+        @media (max-width: 768px) {
+            .biblioteka-container { padding: 30px 20px; }
+            h1.gold-title { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <header style="border:none; background:none; padding: 40px 0;">
-            <a href="index.html" style="color:#fff; text-decoration:none; font-family:Arial;">← KEMBALI KE ARSIP</a>
-        </header>
+        <a href="index.html" class="back-btn">← KEMBALI KE TERMINAL ARSIP</a>
 
-        <main class="text-block">
-            <h1 style="font-style: italic; font-size: 3rem; margin-bottom: 10px;">Perpustakaan Bayangan</h1>
-            <p style="color: #666; font-family: Arial; letter-spacing: 2px;">FILE REF: BIB/2026/001</p>
-            
-            <p style="margin-top: 40px;">Buku bukan sekadar kertas dan tinta. Ia adalah senjata yang tidak berbunyi. Di bawah ini adalah kurasi awal bagi mereka yang berani mempertanyakan realitas di Ar-Raniry.</p>
+        <main class="biblioteka-container">
+            <span class="ref-code">FILE REF: BIB/2026/001</span>
+            <h1 class="gold-title">Perpustakaan Bayangan</h1>
 
-            <div class="book-list">
-                <div class="book-item">
-                    <p class="book-author">Paulo Freire</p>
-                    <p class="book-title">Pendidikan Kaum Tertindas</p>
-                    <p>Memahami bagaimana sistem pendidikan seringkali digunakan untuk menjinakkan kesadaran, bukan membebaskannya.</p>
+            <p class="intro-text">
+                Buku bukan sekadar kertas dan tinta. Ia adalah senjata yang tidak berbunyi. Di bawah ini adalah kurasi awal bagi mereka yang berani mempertanyakan realitas di Ar-Raniry. Karena dalam kegelapan birokrasi, nalar yang terasah adalah lentera satu-satunya.
+            </p>
+
+            <div class="book-grid">
+                <div class="book-entry">
+                    <p class="author">Paulo Freire</p>
+                    <h2 class="book-title">Pendidikan Kaum Tertindas</h2>
+                    <p>Memahami bagaimana sistem pendidikan seringkali digunakan untuk menjinakkan kesadaran, bukan membebaskannya. Sebuah peta menuju pedagogi pembebasan.</p>
                 </div>
 
-                <div class="book-item">
-                    <p class="book-author">Antonio Gramsci</p>
-                    <p class="book-title">Catatan-Catatan dari Penjara</p>
-                    <p>Tentang bagaimana intelektual organik harus lahir untuk melawan hegemoni penguasa.</p>
+                <div class="book-entry">
+                    <p class="author">Antonio Gramsci</p>
+                    <h2 class="book-title">Catatan-Catatan dari Penjara</h2>
+                    <p>Tentang bagaimana intelektual organik harus lahir untuk melawan hegemoni budaya penguasa. Menggugat konsensus yang menindas.</p>
                 </div>
 
-                <div class="book-item">
-                    <p class="book-author">Franz Fanon</p>
-                    <p class="book-title">The Wretched of the Earth</p>
-                    <p>Analisis mendalam tentang dekolonisasi mental dan fisik bagi mereka yang dianggap "kelas dua".</p>
+                <div class="book-entry">
+                    <p class="author">Franz Fanon</p>
+                    <h2 class="book-title">The Wretched of the Earth</h2>
+                    <p>Analisis mendalam tentang dekolonisasi mental dan fisik bagi mereka yang dianggap "kelas dua" dalam struktur kekuasaan global maupun lokal.</p>
                 </div>
             </div>
+
+            <section class="external-links">
+                <h3>Akses Jalur Luar (Digital)</h3>
+                <p style="font-size: 0.8rem; color: #666; margin-bottom: 20px;">
+                    Jalur komunikasi terenkripsi menuju repositori literatur progresif internasional:
+                </p>
+                
+                <a href="https://revolusioner.org/" target="_blank" class="link-item">
+                    REVOLUSIONER.ORG <span>[REPOSITORI LOKAL]</span>
+                </a>
+                
+                <a href="https://www.arahjuang.com/" target="_blank" class="link-item">
+                    ARAH JUANG <span>[PERSPEKTIF MASSA]</span>
+                </a>
+                
+                <a href="https://www.marxists.org/indonesia/" target="_blank" class="link-item">
+                    MARXISTS INTERNET ARCHIVE (INDONESIA) <span>[ARSIP GLOBAL]</span>
+                </a>
+            </section>
 
             <div class="secure-box" style="margin-top: 60px; border-color: #d4af37; color: #d4af37;">
                 "JANGAN BIARKAN MEREKA MENGATUR APA YANG BOLEH KAU PIKIRKAN."
             </div>
         </main>
     </div>
+
 </body>
 </html>
