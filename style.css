@@ -391,3 +391,40 @@ footer {
     .logo-text { font-size: 0.7rem; text-align: center; }
     .secure-box { width: 100%; letter-spacing: 2px; }
 }
+/* Gaya Khusus: Protokol Nalar Otonom (Efek Jaringan) */
+.karya-card.autonomous-net {
+    border: 1px dashed #444;
+}
+
+.karya-card.autonomous-net::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(#222 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.karya-card.autonomous-net:hover {
+    border: 1px dashed #fff;
+}
+
+.karya-card.autonomous-net::after {
+    content: "NETWORK";
+}
+
+/* Gaya Khusus: Perpustakaan Bayangan (Efek Klasik/Sepia) */
+.karya-card.biblioteka-style:hover {
+    background: linear-gradient(to bottom, #0a0a0a, #1a1510);
+    border-color: #d4af37; /* Warna emas redup */
+}
+
+.karya-card.biblioteka-style:hover h3 {
+    color: #d4af37;
+    text-decoration-color: #d4af37;
+}
+
+.karya-card.biblioteka-style::after {
+    content: "READ";
+}
