@@ -3,9 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manifes Pendidikan | PARI</title>
+    <title>[DOKUMEN 001] Manifes Pendidikan | PARI</title>
     <link rel="icon" type="image/png" href="LOGO_PARI.png">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS Khusus Halaman Manifes agar lebih keren */
+        .reader-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px;
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid #222;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reader-container::before {
+            content: "TOP SECRET // PARI OFFICIAL";
+            position: absolute;
+            top: 15px;
+            right: -40px;
+            background: #ff4141;
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 5px 40px;
+            transform: rotate(35deg);
+        }
+
+        .doc-header {
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .doc-category {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+        }
+
+        .doc-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-top: 10px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .essay-content {
+            font-size: 1.1rem;
+            color: #ccc;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        .essay-content p {
+            margin-bottom: 25px;
+            text-indent: 30px;
+        }
+
+        .highlight-box {
+            background: rgba(0, 255, 65, 0.05);
+            border-left: 3px solid var(--accent-color);
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .highlight-box li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .highlight-box li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .stamp-footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-btn:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .reader-container { padding: 25px; margin: 20px 10px; }
+            .doc-title { font-size: 1.6rem; }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -14,39 +128,50 @@
                 <img src="LOGO_PARI.png" alt="Logo PARI" class="main-logo">
                 <a href="index.html" style="text-decoration: none;"><span class="logo-text">PARI</span></a>
             </div>
-            <ul>
-                <li><a href="index.html">Kembali</a></li>
-            </ul>
         </nav>
     </header>
 
-    <article class="content reader-mode">
-        <span class="date">[DOKUMEN 001]</span>
-        <h1>Manifes Pendidikan: Melawan Komersialisasi Nalar</h1>
-        
-        <div class="essay-body">
-            <p>Pendidikan bukan sekadar deretan angka di atas transkrip, atau lembaran ijazah yang menjadi tiket menuju pasar tenaga kerja. Hari ini, kita menyaksikan bagaimana institusi pendidikan perlahan berubah menjadi korporasi, di mana mahasiswa adalah konsumen dan ilmu pengetahuan adalah komoditas.</p>
+    <main class="container">
+        <div class="reader-container">
+            <a href="index.html" class="back-btn"><- KEMBALI KE ARSIP</a>
+            
+            <div class="doc-header">
+                <span class="doc-category">[ KATEGORI: MANIFES PENDIDIKAN ]</span>
+                <h1 class="doc-title">Melawan Komersialisasi Nalar: Menggugat Korporatisasi Kampus</h1>
+            </div>
 
-            <p>Birokrasi yang berbelit, biaya yang kian mencekik, dan ruang diskusi yang dibatasi adalah bukti nyata bahwa ada yang salah dengan sistem kita. Kita dipaksa untuk patuh pada administratif, namun dibungkam saat mempertanyakan substansi.</p>
+            <div class="essay-content">
+                <p>Pendidikan bukan sekadar deretan angka di atas transkrip, atau lembaran ijazah yang menjadi tiket menuju pasar tenaga kerja. Hari ini, kita menyaksikan bagaimana institusi pendidikan perlahan berubah menjadi korporasi, di mana mahasiswa diposisikan sebagai konsumen dan ilmu pengetahuan sebagai komoditas yang diperjualbelikan secara dingin.</p>
 
-            <h3>Poin Perlawanan:</h3>
-            <ul>
-                <li><strong>Otonomi Nalar:</strong> Menolak segala bentuk pembatasan pemikiran di lingkungan akademik.</li>
-                <li><strong>Transparansi Mutlak:</strong> Menuntut keterbukaan dalam setiap kebijakan finansial dan birokrasi fakultas.</li>
-                <li><strong>Keadilan Akses:</strong> Pendidikan harus menjadi hak bagi mereka yang mampu berpikir, bukan hanya mereka yang mampu membayar.</li>
-            </ul>
+                <p>Birokrasi yang kian berbelit, biaya yang kian mencekik, dan pembungkaman ruang diskusi adalah bukti nyata adanya dekadensi sistemik. Kita dipaksa patuh pada aturan administratif yang kaku, namun di saat yang sama, nalar kritis kita dikebiri demi menjaga citra institusi.</p>
 
-            <p>PARI hadir bukan untuk merusak, melainkan untuk mengembalikan marwah pendidikan ke jalur yang semestinya. Kita bergerak dalam bayang untuk memastikan cahaya kebenaran tetap menyala di koridor-koridor fakultas.</p>
+                <div class="highlight-box">
+                    <h3>Poin Perlawanan PARI:</h3>
+                    <ul>
+                        <li><strong>OTONOMI NALAR:</strong> Menolak segala bentuk intervensi dan pembatasan pemikiran di lingkungan akademik. Kampus adalah ruang suci bagi kebenaran, bukan alat politik birokrasi.</li>
+                        <li><strong>TRANSPARANSI MUTLAK:</strong> Menuntut keterbukaan total dalam setiap kebijakan finansial dan tata kelola anggaran fakultas. Hak mahasiswa untuk tahu ke mana setiap rupiah dialirkan.</li>
+                        <li><strong>KEADILAN AKSES:</strong> Pendidikan adalah hak dasar bagi mereka yang mampu berpikir, bukan hak eksklusif bagi mereka yang mampu membayar mahal.</li>
+                    </ul>
+                </div>
+
+                <p>PARI hadir bukan untuk merusak fasilitas, melainkan untuk meruntuhkan keangkuhan sistem yang menindas. Kita bergerak dalam bayang, menyusup di antara koridor fakultas, untuk memastikan cahaya idealisme tetap menyala. Jika kebenaran harus disuarakan dalam sunyi, maka biarlah sunyi itu menjadi badai bagi mereka yang zalim.</p>
+            </div>
+
+            <div class="stamp-footer">
+                <div>
+                    <strong>STATUS: TERVERIFIKASI</strong><br>
+                    ID: PARI-DOC-001-AR-RANIRY
+                </div>
+                <div style="text-align: right;">
+                    <strong>TANGGAL RILIS: 11.05.26</strong><br>
+                    SALURAN: MADING & DIGITAL
+                </div>
+            </div>
         </div>
-
-        <div class="secure-box" style="margin-top: 50px;">
-            <p>Dokumen ini adalah milik publik. Cetak, sebarkan, dan diskusikan di ruang-ruang gelap maupun terang.</p>
-            <strong>VERIFIKASI: PARI-DOC-001-2026</strong>
-        </div>
-    </article>
+    </main>
 
     <footer>
-        <p>&copy; 2026 PARI. Jalankan dengan bijak.</p>
+        <p>&copy; 2026 PARI. Dokumentasi ini bersifat publik. Sebarkan.</p>
     </footer>
 </body>
 </html>
