@@ -7,8 +7,8 @@
 
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #000000; /* Latar Hitam */
+    color: #ffffff; /* Tulisan Putih */
     line-height: 1.6;
     scroll-behavior: smooth;
 }
@@ -21,8 +21,8 @@ body {
 
 /* --- Navigation --- */
 header {
-    background: #ffffff;
-    border-bottom: 2px solid #000000;
+    background: #000000;
+    border-bottom: 2px solid #ffffff;
     padding: 15px 0;
     position: sticky;
     top: 0;
@@ -33,7 +33,6 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Untuk mobile agar tidak meluber */
 }
 
 .logo-container {
@@ -44,13 +43,14 @@ nav {
 
 .main-logo {
     height: 40px;
-    width: auto;
+    filter: invert(1); /* Membalik warna logo jadi putih jika aslinya hitam */
 }
 
 .logo-text {
     font-weight: bold;
     font-size: 0.9rem;
     letter-spacing: 1px;
+    color: #ffffff;
 }
 
 .nav-links {
@@ -61,7 +61,7 @@ nav {
 
 .nav-links a {
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
     font-size: 0.8rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -71,13 +71,13 @@ nav {
 .hero {
     padding: 100px 0;
     text-align: center;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #333;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     text-transform: uppercase;
-    border: 3px solid #000;
+    border: 2px solid #ffffff;
     display: inline-block;
     padding: 10px 20px;
     margin-bottom: 15px;
@@ -89,28 +89,32 @@ nav {
     text-align: center;
 }
 
-.light-gray-bg {
-    background-color: #f9f9f9;
+.darker-bg {
+    background-color: #0a0a0a; /* Hitam sedikit lebih terang untuk variasi */
 }
 
 h2 {
     text-transform: uppercase;
     letter-spacing: 3px;
     margin-bottom: 30px;
-    text-decoration: underline;
+    border-bottom: 1px solid #ffffff;
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
 .text-block {
     max-width: 800px;
     margin: 0 auto 30px;
     text-align: justify;
+    color: #cccccc; /* Abu-abu terang agar mata tidak cepat lelah */
 }
 
 .secure-box {
-    border: 2px solid #000;
+    border: 2px solid #ffffff;
     padding: 15px;
     display: inline-block;
     font-weight: bold;
+    background: #111;
 }
 
 /* --- Log Aktivitas --- */
@@ -123,11 +127,12 @@ h2 {
 .log-item {
     padding-bottom: 15px;
     margin-bottom: 15px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #222;
 }
 
 .date {
     font-weight: bold;
+    color: #ffffff;
     font-size: 0.8rem;
 }
 
@@ -140,48 +145,51 @@ h2 {
 }
 
 .karya-card {
-    border: 1px solid #000;
+    border: 1px solid #ffffff;
     padding: 25px;
     text-align: left;
     transition: 0.3s;
+    background: #000;
 }
 
 .karya-card:hover {
-    background-color: #000;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
 }
 
-.karya-card h3 {
-    margin: 10px 0;
-    text-transform: uppercase;
+.karya-card span {
+    font-size: 0.7rem;
+    color: #888;
 }
+
+.karya-card:hover span { color: #555; }
 
 .btn-link {
     display: inline-block;
     margin-top: 15px;
     padding: 8px 15px;
-    border: 1px solid #000;
-    color: #000;
+    border: 1px solid #ffffff;
+    color: #ffffff;
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: bold;
 }
 
 .karya-card:hover .btn-link {
-    border-color: #fff;
-    color: #fff;
+    border-color: #000;
+    color: #000;
 }
 
 /* --- Kontak & Instruksi --- */
 .instruction-box {
-    border: 2px solid #d32f2f; /* Merah untuk tanda bahaya/penting */
+    border: 2px solid #ff4444;
     padding: 20px;
     max-width: 600px;
     margin: 30px auto;
 }
 
 .warning-text {
-    color: #d32f2f;
+    color: #ff4444;
     font-weight: bold;
 }
 
@@ -191,54 +199,28 @@ h2 {
     text-align: left;
 }
 
-.protocol ul {
-    padding-left: 20px;
-}
-
 .motto {
     margin-top: 40px;
     font-style: italic;
-    font-weight: bold;
-}
-
-.border-top-thick {
-    border-top: 5px solid #000;
+    border-top: 1px solid #333;
+    padding-top: 15px;
 }
 
 /* --- Footer --- */
 footer {
     padding: 40px 0;
     background: #000;
-    color: #fff;
+    border-top: 1px solid #333;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    color: #666;
 }
 
-/* --- Responsive (Mobile Optimization) --- */
+/* --- Mobile View --- */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav-links {
-        gap: 10px;
-    }
-
-    .hero h1 {
-        font-size: 1.5rem;
-    }
-
-    .hero {
-        padding: 60px 0;
-    }
-
-    .content {
-        padding: 50px 0;
-    }
-
-    .logo-text {
-        font-size: 0.7rem;
-        text-align: center;
-    }
+    nav { flex-direction: column; gap: 15px; }
+    .nav-links { gap: 10px; font-size: 0.7rem; }
+    .logo-text { font-size: 0.7rem; text-align: center; }
+    .hero { padding: 60px 0; }
+    .content { padding: 50px 0; }
 }
