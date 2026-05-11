@@ -206,3 +206,32 @@ footer {
     nav ul { display: none; } /* Sederhanakan nav di mobile */
     .logo-text { font-size: 1.2rem; }
 }
+/* Reader Mode untuk Halaman Karya */
+.reader-mode {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 10%;
+}
+
+.reader-mode h1 {
+    color: #00ff41;
+    margin-top: 10px;
+    font-size: 2.2rem;
+}
+
+.essay-body {
+    margin-top: 40px;
+    font-size: 1.1rem;
+    color: #ccc;
+    text-align: justify;
+}
+
+.essay-body p {
+    margin-bottom: 20px;
+}
+
+.essay-body h3 {
+    color: #00ff41;
+    margin-top: 30px;
+}
