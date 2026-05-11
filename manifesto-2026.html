@@ -3,104 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MANIFESTO PARI 2026</title>
+    <title>MANIFESTO PARI 2026 | Pergerakan Ar-Raniry</title>
     <link rel="icon" type="image/png" href="LOGO_PARI.png">
     <link rel="stylesheet" href="style.css">
     <style>
-        .manifesto-container {
-            max-width: 850px;
-            margin: 50px auto;
-            padding: 60px;
-            background: #0f0f0f;
-            border: 1px solid #333;
-            box-shadow: 0 0 50px rgba(0,0,0,0.8);
-            line-height: 1.8;
-            position: relative;
+        /* Gaya Akademis Khusus Manifesto */
+        body {
+            background-color: #000;
+            color: #fff;
+            -webkit-font-smoothing: antialiased;
         }
 
+        .manifesto-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 80px 60px;
+            background: #000;
+            border: 1px solid #222;
+            position: relative;
+            box-shadow: none; /* Menghilangkan bayangan agar lebih kaku */
+        }
+
+        /* Header Dokumen */
         .manifesto-header {
             text-align: center;
-            border-bottom: 3px double var(--accent-color);
-            margin-bottom: 40px;
+            border-bottom: 1px solid #fff;
+            margin-bottom: 50px;
             padding-bottom: 20px;
         }
 
         .manifesto-header h1 {
-            font-size: 2.5rem;
-            letter-spacing: 10px;
+            font-size: 2.2rem;
+            font-weight: normal;
+            letter-spacing: 5px;
+            text-transform: uppercase;
             margin: 0;
-            color: var(--text-color);
         }
 
         .manifesto-header .year {
-            color: var(--accent-color);
-            font-weight: bold;
-            font-size: 1.2rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 10px;
+            margin-top: 10px;
+            color: #888;
         }
 
+        /* Banner Kutipan Bergaya Prasasti */
         .quote-banner {
-            background: var(--accent-color);
-            color: #000;
-            padding: 20px;
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 25px;
             text-align: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            transform: skew(-5deg);
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            line-height: 1.6;
         }
 
+        /* Isi Manifesto */
         .manifesto-body {
-            font-size: 1.15rem;
-            color: #ddd;
+            font-size: 1.25rem;
+            color: #eee;
             text-align: justify;
+            line-height: 2.1; /* Spasi lebar untuk pembacaan mendalam */
         }
 
         .manifesto-body p {
-            margin-bottom: 25px;
-            text-indent: 40px;
+            margin-bottom: 35px;
+            text-indent: 50px; /* Indentasi khas naskah lama */
         }
 
+        /* Footer & Tanda Tangan */
         .manifesto-footer {
-            margin-top: 60px;
+            margin-top: 100px;
             text-align: right;
-            border-top: 1px solid #222;
-            padding-top: 20px;
+            border-top: 1px double #333;
+            padding-top: 30px;
+        }
+
+        .manifesto-footer p {
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .signature {
-            font-size: 1.5rem;
-            letter-spacing: 5px;
-            color: var(--accent-color);
-            font-weight: bold;
-            margin-top: 10px;
+            font-size: 2rem;
+            letter-spacing: 8px;
+            font-weight: normal;
+            margin-top: 15px;
+            display: inline-block;
+            border-bottom: 1px solid #fff;
         }
 
+        /* Watermark Latar Belakang */
         .watermark {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            opacity: 0.03;
-            width: 80%;
+            opacity: 0.02;
+            width: 70%;
             pointer-events: none;
+            filter: grayscale(1) invert(1);
         }
 
-        @media (max-width: 600px) {
-            .manifesto-container { padding: 30px 20px; margin: 20px 10px; }
-            .manifesto-header h1 { font-size: 1.8rem; }
-            .quote-banner { font-size: 0.9rem; transform: none; }
+        /* --- Penyesuaian Mobile --- */
+        @media (max-width: 768px) {
+            .manifesto-container {
+                margin: 0;
+                padding: 50px 25px;
+                border: none;
+            }
+
+            .manifesto-header h1 {
+                font-size: 1.5rem;
+                letter-spacing: 3px;
+            }
+
+            .quote-banner {
+                font-size: 1rem;
+                padding: 15px;
+            }
+
+            .manifesto-body {
+                font-size: 1.1rem;
+                line-height: 1.9;
+            }
+
+            .manifesto-body p {
+                text-indent: 30px;
+            }
+
+            .signature {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="container">
             <div class="logo-container">
                 <img src="LOGO_PARI.png" alt="Logo PARI" class="main-logo">
                 <a href="index.html" style="text-decoration: none;"><span class="logo-text">PARI</span></a>
             </div>
-            <ul>
-                <li><a href="index.html">KEMBALI KE ARSIP</a></li>
+            <ul class="nav-links">
+                <li><a href="index.html">← KEMBALI KE ARSIP</a></li>
             </ul>
         </nav>
     </header>
@@ -111,32 +162,36 @@
             
             <div class="manifesto-header">
                 <h1>MANIFESTO PARI</h1>
-                <div class="year">2026</div>
+                <div class="year">M M X X V I</div>
             </div>
 
             <div class="quote-banner">
-                “Bek Ta Takot Keu Darah Ile, Adak Pih Matee Poma Ka Rela” [cite: 2]
+                "Bek Ta Takot Keu Darah Ile, Adak Pih Matee Poma Ka Rela"
             </div>
 
             <div class="manifesto-body">
-                <p>Matahari terbenam di ufuk barat, menyingsing bayang-bayang dari belakang gedung Darussalam, tidurlah dengan lelap! [cite: 3] Semua kekuatan lama yang berada di zona nyaman mulai gemetar. [cite: 4] Birokrat kampus yang alergi mendengar kritik, mulai lemas. [cite: 4] Kawan-kawan oportunis di lembaga mahasiswa kita telah menggadaikan mandatnya demi kepentingan pribadi. [cite: 5] Mereka semua takut pada satu hal, lahir kembali Mahasiswa Ar-Raniry yang berakal, liar, vokal dan mustahil dikendalikan. [cite: 6] Darah dan keringat para endatu geutanyoe adalah saksi bahwa kampus ini adalah episentrum perlawanan. [cite: 7] Leher kita pernah dicekik oleh Rezim Orde Baru dan di saat yang sama, dari rahim Ar-Raniry lahir para singa podium yang tidak takut pada bedil. [cite: 8] Kita adalah pewaris semangat Referendum. [cite: 9] Mengalir darah pejuang garis depan di dalam nadi kita, menyuarakan keadilan bagi rakyat tertindas, membangun jembatan sendiri untuk meneriakkan dengan keras usul dan penderitaan rakyat kepada penguasa yang tuli. [cite: 9]</p>
+                <p>Matahari terbenam di ufuk barat, menyingsing bayang-bayang dari belakang gedung Darussalam, tidurlah dengan lelap! Semua kekuatan lama yang berada di zona nyaman mulai gemetar. Birokrat kampus yang alergi mendengar kritik, mulai lemas. Kawan-kawan oportunis di lembaga mahasiswa kita telah menggadaikan mandatnya demi kepentingan pribadi. Mereka semua takut pada satu hal: lahir kembali Mahasiswa Ar-Raniry yang berakal, liar, vokal, dan mustahil dikendalikan. Darah dan keringat para <em>endatu geutanyoe</em> adalah saksi bahwa kampus ini adalah episentrum perlawanan. Leher kita pernah dicekik oleh Rezim Orde Baru dan di saat yang sama, dari rahim Ar-Raniry lahir para singa podium yang tidak takut pada bedil. Kita adalah pewaris semangat Referendum.</p>
 
-                <p>Kita adalah anak-anak nalar yang dahulu membuat Jakarta gentar dengan keberanian mendefinisikan nasib bangsa. [cite: 10]</p>
+                <p>Kita adalah anak-anak nalar yang dahulu membuat Jakarta gentar dengan keberanian mendefinisikan nasib bangsa. Mengalir darah pejuang garis depan di dalam nadi kita, menyuarakan keadilan bagi rakyat tertindas, membangun jembatan sendiri untuk meneriakkan dengan keras usul dan penderitaan rakyat kepada penguasa yang tuli.</p>
 
-                <p>Matahari terbit di ufuk timur, lihatlah sekelilingmu! musuh kita bukan lagi moncong senjata, lebih menyakitkan dari itu. [cite: 11] Kematian Nalar dan Amnesia Identitias. [cite: 12] Kita dipaksa meminum obat “malas membaca”, geutanyoe ditheun le senior-senior yang berprofesi sebagai polisi moral untuk membungkam dialektika di bawah ketiak feodalisme kampus. [cite: 12] Kita berhadapan dengan dosen yang membelenggu akal sehat di kelas setiap hari. [cite: 13] Awak nyan ipeugot mahasiswa sebagai kuda untuk ditunggangi sampai ke tujuan. [cite: 14] Kita sedang menyaksikan pergeseran paradigma di mana kita dipaksa bertransformasi dari kaum terpelajar menjadi kaum pekerja. [cite: 15] Kampus kita tidak lagi menjadi laboratorium pemikiran, ruang kelas sudah tidak aman di mana kejujuran intelektual dibalas dengan ancaman nilai serta “mahasiswa radikal”. [cite: 16] Benteng terakhir yang pernah kamoe pateh adalah lembaga mahasiswa, kini telah berubah menjadi miniatur politik praktis yang busuk. [cite: 17] Awak nyan sibuk dengan seremoni kosong sementara keresahan geutanyoe mahasiswa diabaikan. [cite: 18] Stigma negatif terhadap kami, “mahasiswa radikal” sengaja dipelihara untuk menciptakan ketakutan kolektif. [cite: 19]</p>
+                <p>Matahari terbit di ufuk timur, lihatlah sekelilingmu! Musuh kita bukan lagi moncong senjata, lebih menyakitkan dari itu: Kematian Nalar dan Amnesia Identitas. Kita dipaksa meminum obat "malas membaca", <em>geutanyoe ditheun le</em> senior-senior yang berprofesi sebagai polisi moral untuk membungkam dialektika di bawah ketiak feodalisme kampus. Kita berhadapan dengan dosen yang membelenggu akal sehat di kelas setiap hari. Awak nyan ipeugot mahasiswa sebagai kuda untuk ditunggangi sampai ke tujuan. Kita sedang menyaksikan pergeseran paradigma di mana kita dipaksa bertransformasi dari kaum terpelajar menjadi kaum pekerja.</p>
 
-                <p>Masa tenang telah usai! ketakutan mereka adalah kami. [cite: 20] Awak nyan yoe keu mahasiswa dengan nalar tinggi. [cite: 20] Kami adalah racun bagi kediktatoran administratif. [cite: 21] Kami tak rela darah pejuang berhenti mengalir dan tercerabut dari Ar-Raniry. [cite: 21] Kami pastikan revolusi ini bermula dari keberanian untuk membaca, berbicara dan kembali melawan segala bentuk pendangkalan intelektual. [cite: 22] Kami telah memiliki nama: Pergerakan Ar-Raniry (PARI). [cite: 23] Kami tidak akan berhenti sampai nalar kembali berdaulat di Ar-Raniry. [cite: 23]</p>
+                <p>Kampus kita tidak lagi menjadi laboratorium pemikiran, ruang kelas sudah tidak aman di mana kejujuran intelektual dibalas dengan ancaman nilai serta label "mahasiswa radikal". Benteng terakhir yang pernah kami percayai adalah lembaga mahasiswa, kini telah berubah menjadi miniatur politik praktis yang busuk. <em>Awak nyan</em> sibuk dengan seremoni kosong sementara keresahan mahasiswa diabaikan. Stigma negatif terhadap kami sengaja dipelihara untuk menciptakan ketakutan kolektif.</p>
+
+                <p>Masa tenang telah usai! Ketakutan mereka adalah kami. Kami adalah racun bagi kediktatoran administratif. Kami tak rela darah pejuang berhenti mengalir dan tercerabut dari Ar-Raniry. Kami pastikan revolusi ini bermula dari keberanian untuk membaca, berbicara, dan kembali melawan segala bentuk pendangkalan intelektual. Kami telah memiliki nama: Pergerakan Ar-Raniry (PARI). Kami tidak akan berhenti sampai nalar kembali berdaulat di Ar-Raniry.</p>
             </div>
 
             <div class="manifesto-footer">
-                <p>Bandar Aceh Darussalam, 09 Mei 2026 [cite: 24]</p>
-                <div class="signature">PARI [cite: 25]</div>
+                <p>Bandar Aceh Darussalam, 09 Mei 2026</p>
+                <div class="signature">P A R I</div>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 PARI. Nalar adalah senjata kami.</p>
+        <div class="container">
+            <p>NALAR ADALAH SENJATA • PARI &copy; 2026</p>
+        </div>
     </footer>
 </body>
 </html>
