@@ -3,141 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[DOKUMEN.003/TKT] PROTOKOL NALAR OTONOM</title>
+    <title>DOKUMEN.003/TKT - Protokol Nalar Otonom | PARI</title>
+    <link rel="icon" type="image/png" href="LOGO_PARI.png">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Gaya Khusus Dokumen Manuskrip */
-        .document-container {
-            background-color: #050505;
-            border: 1px solid #222;
-            padding: 60px 50px;
-            margin: 50px auto;
-            max-width: 850px;
-            box-shadow: 0 0 100px rgba(0,0,0,0.8);
-            position: relative;
+        /* ========== Gaya Khusus Halaman Dokumen ========== */
+        :root {
+            --primary: #dd3333;
+            --primary-dark: #bb2222;
+            --dark: #1a1a1a;
+            --gray: #555;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            background: var(--light-gray);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header Navigasi */
+        .doc-header-bar {
+            background: var(--white);
+            border-bottom: 1px solid #e0e0e0;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .doc-header-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-area img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-area span {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark);
+        }
+
+        .back-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.2s;
+        }
+
+        .back-link:hover {
+            gap: 12px;
+            color: var(--primary-dark);
+        }
+
+        /* Kontainer Dokumen */
+        .document-wrapper {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin: 40px auto;
             overflow: hidden;
         }
 
-        /* Watermark Latar Belakang */
-        .document-container::before {
-            content: "PARI-CONFIDENTIAL";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-45deg);
-            font-size: 8rem;
-            color: rgba(255, 255, 255, 0.02);
-            white-space: nowrap;
-            pointer-events: none;
-            z-index: 0;
+        .document-container {
+            padding: 60px 56px;
         }
 
+        /* Header Dokumen */
         .doc-header {
-            border-bottom: 2px solid #fff;
-            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 24px;
             margin-bottom: 40px;
-            font-family: Arial, sans-serif;
         }
 
         .classification {
             display: inline-block;
-            background: #4a0000;
-            color: #fff;
-            padding: 5px 15px;
-            font-weight: bold;
+            background: var(--primary);
+            color: white;
+            padding: 4px 16px;
+            font-weight: 700;
+            font-size: 0.7rem;
             letter-spacing: 2px;
-            margin-bottom: 10px;
-            font-size: 0.8rem;
+            border-radius: 20px;
+            margin-bottom: 16px;
         }
 
-        .quote-box {
-            border-left: 4px solid #fff;
-            padding: 20px 30px;
-            margin: 40px 0;
-            background: rgba(255, 255, 255, 0.03);
+        .ref-number {
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 8px;
+        }
+
+        .doc-subject {
+            font-size: 0.9rem;
+            color: var(--gray);
             font-style: italic;
-            font-size: 1.2rem;
+        }
+
+        /* Quote Box */
+        .quote-box {
+            border-left: 4px solid var(--primary);
+            background: var(--light-gray);
+            padding: 28px 32px;
+            margin: 40px 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--dark);
+            border-radius: 0 12px 12px 0;
+        }
+
+        .quote-author {
+            margin-top: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            font-style: normal;
+        }
+
+        /* Section */
+        .section {
+            margin: 48px 0;
         }
 
         .section-title {
-            font-family: Arial, sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #fff;
-            margin-top: 50px;
-            border-bottom: 1px solid #333;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary);
             display: inline-block;
-            padding-bottom: 5px;
         }
 
-        .sub-point {
-            margin-top: 25px;
-            padding-left: 20px;
-            border-left: 1px solid #444;
-        }
-
-        .sub-point strong {
-            color: #fff;
-            display: block;
-            margin-bottom: 5px;
-            font-family: Arial, sans-serif;
-            text-transform: uppercase;
+        .section-sub {
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 24px;
             font-size: 0.9rem;
         }
 
-        .footer-sign {
-            margin-top: 80px;
-            text-align: right;
-            font-family: 'Courier New', Courier, monospace;
-            border-top: 1px solid #222;
-            padding-top: 20px;
+        .text-block {
+            color: var(--gray);
+            line-height: 1.8;
         }
 
-        .back-nav {
-            margin: 30px 0;
+        .text-block p {
+            margin-bottom: 20px;
+        }
+
+        /* Sub Point */
+        .sub-point {
+            margin: 28px 0 28px 24px;
+            padding-left: 20px;
+            border-left: 2px solid #e0e0e0;
+        }
+
+        .sub-point strong {
             display: block;
-            color: #888;
-            text-decoration: none;
-            font-family: Arial, sans-serif;
-            font-size: 0.8rem;
-            transition: 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
         }
 
-        .back-nav:hover { color: #fff; }
+        .sub-point p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
 
+        /* Protokol Aksi (BLST) */
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .action-card {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .action-card strong {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .action-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Footer Dokumen */
+        .footer-sign {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+            text-align: right;
+        }
+
+        .footer-sign p {
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .footer-sign .signature {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        /* Footer Umum */
+        .site-footer {
+            background: var(--dark);
+            color: #aaa;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            font-size: 0.75rem;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .document-container { padding: 30px 20px; margin: 20px; }
+            .document-container {
+                padding: 32px 24px;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .quote-box {
+                padding: 20px;
+                font-size: 1rem;
+            }
+            
+            .action-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sub-point {
+                margin-left: 12px;
+                padding-left: 15px;
+            }
+            
+            .doc-header-bar .container {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
+<!-- Header Navigasi -->
+<div class="doc-header-bar">
     <div class="container">
-        <a href="index.html" class="back-nav">← KEMBALI KE TERMINAL ARSIP</a>
+        <div class="logo-area">
+            <img src="LOGO_PARI.png" alt="Logo PARI">
+            <span>Pergerakan Ar-Raniry</span>
+        </div>
+        <a href="index.html" class="back-link">← KEMBALI KE TERMINAL ARSIP</a>
+    </div>
+</div>
 
-        <main class="document-container">
-            <header class="doc-header">
+<div class="container">
+    <div class="document-wrapper">
+        <div class="document-container">
+            
+            <!-- Header Dokumen -->
+            <div class="doc-header">
                 <div class="classification">KLASIFIKASI: INTERNAL / OTONOM</div>
-                <p><strong>NOMOR REFERENSI:</strong> DOKUMEN.003/TKT</p>
-                <p><strong>SUBJEK:</strong> Metodologi Dekonstruksi Otoritas & Pengorganisasian Akar Rumput</p>
-            </header>
-
-            <div class="quote-box">
-                "Pendidikan adalah senjata, yang efeknya tergantung pada siapa yang memegangnya dan kepada siapa senjata itu diarahkan." 
-                <br>— <span style="font-weight: bold; color: #fff;">Joseph Stalin</span>
+                <div class="ref-number"><strong>NOMOR REFERENSI:</strong> DOKUMEN.003/TKT</div>
+                <div class="doc-subject"><strong>SUBJEK:</strong> Metodologi Dekonstruksi Otoritas &amp; Pengorganisasian Akar Rumput</div>
             </div>
 
-            <section>
+            <!-- Quote Pembuka -->
+            <div class="quote-box">
+                "Pendidikan adalah senjata, yang efeknya tergantung pada siapa yang memegangnya dan kepada siapa senjata itu diarahkan."
+                <div class="quote-author">— Joseph Stalin</div>
+            </div>
+
+            <!-- I. Prolog -->
+            <div class="section">
                 <h2 class="section-title">I. Prolog: Menggugat Kepatuhan Buta</h2>
                 <div class="text-block">
                     <p>Kampus bukan lagi kawah candradimuka intelektual; ia telah bermutasi menjadi pabrik kepatuhan. Mahasiswa dicetak bukan untuk berpikir, melainkan untuk melayani mesin birokrasi dan pasar. Di bawah lampu-lampu neon ruang kelas, nalar kritis sedang sekarat. Protokol ini bukan sekadar panduan diskusi; ini adalah cetak biru untuk merebut kembali kedaulatan nalar yang telah digadaikan kepada penguasa kampus.</p>
                     <p>Kita berdiri di atas warisan <strong>Paulo Freire</strong>, yang mengingatkan bahwa <em>"Manusia yang terjajah hanya akan merasa bebas jika mereka bisa meniru si penjajah."</em> Kita menolak imitasi itu. Kita menolak menjadi budak-budak intelektual yang hanya mahir mengutip tanpa mampu menggugat.</p>
                 </div>
-            </section>
+            </div>
 
-            <section>
+            <!-- II. Strategi Sel Diskusi -->
+            <div class="section">
                 <h2 class="section-title">II. Strategi Sel Diskusi Terfragmentasi</h2>
-                <p style="font-style: italic; color: #888; margin-top: 10px;">Metode Rhizome: Menjalar, muncul di mana-mana, tanpa pusat tunggal.</p>
+                <div class="section-sub">Metode Rhizome: Menjalar, muncul di mana-mana, tanpa pusat tunggal.</div>
                 
                 <div class="sub-point">
                     <strong>Unit Sel 3-5</strong>
@@ -153,9 +354,10 @@
                     <strong>Doktrin Literasi</strong>
                     <p>Setiap pertemuan wajib membedah satu teks "berbahaya". Jangan hanya membaca diktat dosen. Baca Gramsci, pahami bagaimana hegemoni bekerja, dan temukan cara untuk meruntuhkannya dari dalam.</p>
                 </div>
-            </section>
+            </div>
 
-            <section>
+            <!-- III. Dekonstruksi Hegemoni -->
+            <div class="section">
                 <h2 class="section-title">III. Dekonstruksi Hegemoni Birokrasi</h2>
                 <div class="text-block">
                     <p><strong>Antonio Gramsci</strong> menyatakan bahwa penguasa mempertahankan kontrol bukan hanya melalui kekerasan, tetapi melalui konsensus intelektual (kurikulum/peraturan). PARI harus menjadi "intelektual organik" yang membongkar konsensus ini.</p>
@@ -170,12 +372,15 @@
                     <strong>Sabotase Simbolik</strong>
                     <p>Lawan narasi birokrasi dengan narasi tandingan. Jika mereka memasang poster "Prestasi", pasanglah pamflet tentang "Transparansi Dana". Gunakan bahasa yang tajam, lugas, dan menusuk jantung kemunafikan.</p>
                 </div>
-            </section>
+            </div>
 
-            <section>
+            <!-- IV. Taktik Organisasi -->
+            <div class="section">
                 <h2 class="section-title">IV. Taktik Organisasi Tanpa Wajah</h2>
-                <div class="quote-box" style="font-size: 1rem;">
-                    "Revolusi tidak dibuat oleh satu orang, tetapi oleh massa yang sadar." — Rosa Luxemburg
+                
+                <div class="quote-box" style="margin: 20px 0 30px 0;">
+                    "Revolusi tidak dibuat oleh satu orang, tetapi oleh massa yang sadar."
+                    <div class="quote-author">— Rosa Luxemburg</div>
                 </div>
 
                 <div class="sub-point">
@@ -187,32 +392,56 @@
                     <strong>Distribusi Informasi Fisik</strong>
                     <p>Di era pengawasan digital, kertas fisik adalah teknologi perlawanan yang ampuh. Selebaran tangan, tulisan di toilet, dan catatan di dalam buku perpustakaan adalah jalur komunikasi yang tak bisa disadap oleh algoritma.</p>
                 </div>
-            </section>
+            </div>
 
-            <section>
+            <!-- V. Protokol Aksi BLST -->
+            <div class="section">
                 <h2 class="section-title">V. Protokol Aksi: B-L-S-T</h2>
-                <div class="text-block">
-                    <p><strong>BACA:</strong> Hancurkan kebodohan yang dipelihara secara sistematis.</p>
-                    <p><strong>LAWAN:</strong> Tolak setiap bentuk intimidasi moral dan akademik yang mengebiri nalar.</p>
-                    <p><strong>SUARAKAN:</strong> Jadilah penyambung lidah bagi mereka yang dibungkam oleh birokrasi.</p>
-                    <p><strong>TULIS:</strong> Abadikan setiap pengkhianatan birokrasi dalam arsip digital dan fisik agar tidak menguap dimakan zaman.</p>
+                <div class="action-grid">
+                    <div class="action-card">
+                        <strong>📖 BACA</strong>
+                        <p>Hancurkan kebodohan yang dipelihara secara sistematis.</p>
+                    </div>
+                    <div class="action-card">
+                        <strong>⚔️ LAWAN</strong>
+                        <p>Tolak setiap bentuk intimidasi moral dan akademik yang mengebiri nalar.</p>
+                    </div>
+                    <div class="action-card">
+                        <strong>📢 SUARAKAN</strong>
+                        <p>Jadilah penyambung lidah bagi mereka yang dibungkam oleh birokrasi.</p>
+                    </div>
+                    <div class="action-card">
+                        <strong>✍️ TULIS</strong>
+                        <p>Abadikan setiap pengkhianatan birokrasi dalam arsip digital dan fisik agar tidak menguap dimakan zaman.</p>
+                    </div>
                 </div>
-            </section>
+            </div>
 
-            <section>
+            <!-- VI. Epilog -->
+            <div class="section">
                 <h2 class="section-title">VI. Epilog: Kita Adalah Anomali</h2>
                 <div class="text-block">
                     <p>Kita tidak mencari validasi dari dekanat. Kita tidak butuh stempel legalitas dari rektorat. Legalitas kita lahir dari kebenaran yang kita perjuangkan. Sebagaimana <strong>Tan Malaka</strong> pernah berteriak: <em>"Ingatlah! Bahwa dari dalam kubur, suara saya akan lebih keras daripada dari atas bumi!"</em></p>
                     <p>Biarlah mereka menganggap kita hantu. Karena hantu tidak bisa mati, dan hantu akan terus menghantui tidur nyenyak para penindas.</p>
                 </div>
-            </section>
+            </div>
 
-            <footer class="footer-sign">
+            <!-- Footer Dokumen -->
+            <div class="footer-sign">
                 <p>Bandar Aceh Darussalam, 11 Mei 2026</p>
-                <p style="font-weight: bold; letter-spacing: 2px; color: #fff;">DEWAN NALAR OTONOM — PARI</p>
-            </footer>
-        </main>
+                <p class="signature">DEWAN NALAR OTONOM — PARI</p>
+            </div>
+        </div>
     </div>
+</div>
+
+<!-- Footer Umum -->
+<footer class="site-footer">
+    <div class="container">
+        <p>ARSIP RESMI PERGERAKAN AR-RANIRY (PARI) © 2026</p>
+        <p style="margin-top: 6px; font-size: 0.7rem; opacity: 0.6;">DOKUMEN INI BERSIFAT PUBLIK - SEBARKAN UNTUK KESADARAN KOLEKTIF</p>
+    </div>
+</footer>
 
 </body>
 </html>
