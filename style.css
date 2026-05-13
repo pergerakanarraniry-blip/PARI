@@ -1,5 +1,4 @@
-/* ========== CSS MINIMAL YANG PASTI BERFUNGSI ========== */
-
+/* ========== PARI STYLE SHEET ========== */
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +6,8 @@
 }
 
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #fafafa;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
     color: #1a1a1a;
     line-height: 1.6;
 }
@@ -19,7 +18,7 @@ body {
     padding: 0 20px;
 }
 
-/* HEADER */
+/* ========== HEADER ========== */
 header {
     background: #1a1a1a;
     padding: 15px 0;
@@ -42,14 +41,23 @@ nav {
     gap: 10px;
 }
 
+/* INI YANG PENTING - UKURAN LOGO */
 .main-logo {
-    height: 40px;
+    height: 45px !important;
+    width: auto !important;
+    max-width: 150px !important;
 }
 
 .logo-text {
     color: white;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.logo-text a {
+    color: white;
+    text-decoration: none;
 }
 
 .nav-links {
@@ -58,13 +66,14 @@ nav {
     gap: 25px;
 }
 
-.nav-links a {
+.nav-links li a {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    font-size: 0.9rem;
 }
 
-.nav-links a:hover {
+.nav-links li a:hover {
     color: #ff4444;
 }
 
@@ -79,17 +88,17 @@ nav {
     color: white !important;
 }
 
-/* SLIDER */
+/* ========== HERO SLIDER ========== */
 .hero-slider {
     background: #e0e0e0;
     padding: 40px 0;
 }
 
 .slider-container {
+    position: relative;
     background: white;
     border-radius: 10px;
     overflow: hidden;
-    position: relative;
 }
 
 .slider-track {
@@ -113,7 +122,7 @@ nav {
 }
 
 .slide h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: 10px;
 }
 
@@ -173,10 +182,11 @@ nav {
     border-radius: 10px;
 }
 
-/* CONTENT SECTIONS */
+/* ========== CONTENT ========== */
 .content {
     padding: 60px 0;
     border-bottom: 1px solid #ddd;
+    background: white;
 }
 
 h2 {
@@ -187,10 +197,9 @@ h2 {
 }
 
 .manifes-box {
-    background: white;
+    background: #f9f9f9;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .manifes-text {
@@ -208,7 +217,6 @@ h2 {
     margin-top: 20px;
 }
 
-/* LOG ACTIVITY */
 .log-list {
     display: flex;
     flex-direction: column;
@@ -216,11 +224,10 @@ h2 {
 }
 
 .log-item {
-    background: white;
+    background: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
     border-left: 4px solid #ff4444;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .date {
@@ -230,7 +237,6 @@ h2 {
     margin-bottom: 8px;
 }
 
-/* KARYA GRID */
 .karya-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -293,7 +299,46 @@ h2 {
     background: #cc0000;
 }
 
-/* FOOTER */
+.instruction-box {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 30px 0;
+    border-left: 4px solid #ff4444;
+}
+
+.warning-text {
+    font-weight: bold;
+    color: #ff4444;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.protocol ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.protocol li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.protocol li::before {
+    content: "▹";
+    color: #ff4444;
+    position: absolute;
+    left: 0;
+}
+
+.motto {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+    margin-top: 40px;
+}
+
 footer {
     background: #1a1a1a;
     color: #aaa;
@@ -301,7 +346,7 @@ footer {
     padding: 30px 0;
 }
 
-/* RESPONSIVE */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -327,5 +372,9 @@ footer {
     
     h2 {
         font-size: 1.4rem;
+    }
+    
+    .main-logo {
+        height: 35px !important;
     }
 }
