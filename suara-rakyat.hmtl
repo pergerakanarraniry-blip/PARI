@@ -3,160 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TERMINAL SUARA | PARI AR-RANIRY</title>
+    <title>Terminal Suara Rakyat - PARI</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Desain Terminal Suara */
-        .voice-terminal {
-            max-width: 800px;
-            margin: 60px auto;
-            padding: 40px;
-            background: #050505;
-            border: 1px solid #1a1a1a;
-            position: relative;
-            box-shadow: 0 0 50px rgba(74, 0, 0, 0.1);
+        .form-container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #0f0f0f;
+            padding: 35px;
+            border: 1px solid #4a0000;
         }
-
-        /* Label Status di Sudut */
-        .voice-terminal::after {
-            content: "SECURE TRANSMISSION ACTIVE";
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 0.65rem;
-            color: #4a0000;
-            letter-spacing: 2px;
-            font-family: Arial, sans-serif;
-        }
-
-        .input-group {
+        .form-group {
             margin-bottom: 25px;
         }
-
         label {
             display: block;
-            color: #d4af37;
-            margin-bottom: 10px;
-            font-family: Arial, sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.75rem;
+            margin-bottom: 8px;
+            color: #ff9999;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
         }
-
-        input[type="text"], 
-        textarea {
+        input, textarea, select {
             width: 100%;
-            background: #000;
-            border: 1px solid #222;
+            padding: 12px;
+            background: #1a1a1a;
+            border: 1px solid #330000;
             color: #fff;
-            padding: 15px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1rem;
-            outline: none;
-            transition: 0.3s;
+            font-family: monospace;
         }
-
-        input:focus, textarea:focus {
-            border-color: #ff0000;
-            background: #080000;
-        }
-
-        .btn-transmit {
+        button {
             background: #4a0000;
-            color: #fff;
-            border: 1px solid #600;
-            padding: 18px;
-            width: 100%;
-            cursor: pointer;
-            font-family: Arial, sans-serif;
+            color: white;
+            padding: 12px 25px;
+            border: 1px solid #ff0000;
             font-weight: bold;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            transition: 0.3s;
-            margin-top: 10px;
+            cursor: pointer;
+            font-family: monospace;
         }
-
-        .btn-transmit:hover {
-            background: #ff0000;
-            border-color: #fff;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        button:hover {
+            background: #8b0000;
         }
-
-        .warning-box {
-            margin-top: 40px;
-            padding: 20px;
-            border: 1px dashed #333;
-            font-size: 0.8rem;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .status-dot {
-            height: 8px;
-            width: 8px;
-            background-color: #ff0000;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 10px;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        .back-link {
-            display: inline-block;
+        .warning {
+            border-left: 3px solid #ff0000;
+            padding-left: 15px;
             margin-bottom: 30px;
-            color: #444;
-            text-decoration: none;
             font-size: 0.8rem;
-            transition: 0.3s;
         }
-
-        .back-link:hover { color: #fff; }
     </style>
 </head>
 <body>
+    <header>
+        <nav class="container">
+            <div class="logo-container">
+                <img src="LOGO_PARI.png" alt="Logo PARI" class="main-logo">
+                <span class="logo-text">PARI (Pergerakan Ar-Raniry)</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Kembali ke Beranda</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="container">
-        <a href="index.html" class="back-link">← KEMBALI KE TERMINAL UTAMA</a>
+    <main>
+        <div class="container form-container">
+            <h2 style="color:#ff4444;">TERMINAL SUARA RAKYAT</h2>
+            <div class="warning">
+                <p>⚠️ Laporan birokrasi, gagasan perlawanan, atau informasi penting lainnya akan dikirimkan secara anonim melalui saluran terenkripsi.</p>
+            </div>
 
-        <main class="voice-terminal">
-            <h1 style="font-style: italic; color: #fff; margin-bottom: 5px;">Dinding Subversi</h1>
-            <p style="color: #555; margin-bottom: 40px;">Saluran komunikasi anonim untuk pelaporan birokrasi dan gagasan perlawanan.</p>
-
+            <!-- FORMSPREE FORM -->
             <form action="https://formspree.io/f/xaqvkjaa" method="POST">
-                
-                <div class="input-group">
-                    <label>Kode Alias / Identitas Samaran</label>
-                    <input type="text" name="alias" placeholder="Contoh: @HantuFakultas / Anon_Raniry" required>
+                <div class="form-group">
+                    <label>📝 KATEGORI PESAN</label>
+                    <select name="Kategori" required>
+                        <option value="">-- pilih --</option>
+                        <option value="Laporan Birokrasi">Laporan Birokrasi</option>
+                        <option value="Gagasan Perlawanan">Gagasan Perlawanan</option>
+                        <option value="Info Penting">Info Penting</option>
+                        <option value="Kritik & Saran">Kritik & Saran</option>
+                    </select>
                 </div>
 
-                <div class="input-group">
-                    <label>Subjek Transmisi</label>
-                    <input type="text" name="subject" placeholder="Contoh: Laporan Pungli / Gagasan Aksi" required>
+                <div class="form-group">
+                    <label>✍️ ISI PESAN / LAPORAN</label>
+                    <textarea name="Pesan" rows="6" required placeholder="Tuliskan secara jelas dan padat..."></textarea>
                 </div>
 
-                <div class="input-group">
-                    <label>Isi Manifes / Laporan</label>
-                    <textarea name="message" rows="8" placeholder="Tuliskan keresahanmu secara detail di sini..." required></textarea>
+                <div class="form-group">
+                    <label>📎 LAMPIRAN (opsional)</label>
+                    <input type="text" name="Lampiran" placeholder="Jika ada tautan atau kode rujukan">
                 </div>
 
-                <input type="hidden" name="_subject" value="Transmisi Baru dari Dinding Subversi PARI">
+                <div class="form-group">
+                    <label>🏷️ NOMOR IDENTITAS (opsional - untuk tindak lanjut)</label>
+                    <input type="text" name="ID_Rujukan" placeholder="Bisa nomor telepon terenkripsi / email sekali pakai">
+                </div>
 
-                <button type="submit" class="btn-transmit">Kirim Transmisi</button>
-
+                <button type="submit">KIRIM PESAN SECARA ANONIM →</button>
             </form>
 
-            <div class="warning-box">
-                <p><span class="status-dot"></span> <strong>CATATAN KEAMANAN:</strong></p>
-                <p>Setiap transmisi yang dikirim melalui jalur ini dienkripsi melalui protokol Formspree. PARI tidak mengumpulkan metadata perangkat. Keamanan identitas Anda adalah prioritas mutlak kami. Data yang masuk akan dikurasi secara manual sebelum diarsipkan ke dalam log utama.</p>
-            </div>
-        </main>
-    </div>
+            <p style="margin-top: 30px; font-size: 0.7rem; text-align: center; color:#555;">Pesan tidak akan dilacak IP-nya. Sistem menggunakan Formspree sebagai jembatan anonim.</p>
+        </div>
+    </main>
 
+    <footer>
+        <div class="container">
+            <p>PUBLIKASI RESMI PERGERAKAN AR-RANIRY (PARI) © 2026</p>
+        </div>
+    </footer>
 </body>
 </html>
