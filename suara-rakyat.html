@@ -3,129 +3,385 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal Suara Rakyat - PARI</title>
+    <title>Terminal Suara Rakyat | PARI</title>
     <link rel="icon" type="image/png" href="LOGO_PARI.png">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .form-container {
+        /* ========== Gaya Khusus Form ========== */
+        :root {
+            --primary: #dd3333;
+            --primary-dark: #bb2222;
+            --dark: #1a1a1a;
+            --gray: #555;
+            --gray-light: #666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            background: var(--light-gray);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header Navigasi */
+        .site-header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-area img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark);
+        }
+
+        .back-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.2s;
+        }
+
+        .back-link:hover {
+            gap: 12px;
+            color: var(--primary-dark);
+        }
+
+        /* Form Container */
+        .form-wrapper {
             max-width: 700px;
             margin: 50px auto;
-            background: #0f0f0f;
-            padding: 35px;
-            border: 1px solid #4a0000;
         }
+
+        .form-card {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .form-header {
+            background: var(--primary);
+            padding: 24px 32px;
+            text-align: center;
+        }
+
+        .form-header h1 {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .form-header p {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.85rem;
+        }
+
+        .form-body {
+            padding: 40px 40px 32px;
+        }
+
+        /* Alert/Warning */
+        .alert-warning {
+            background: #fff5f5;
+            border-left: 4px solid var(--primary);
+            padding: 16px 20px;
+            margin-bottom: 32px;
+            border-radius: 8px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .alert-warning .icon {
+            font-size: 1.2rem;
+        }
+
+        .alert-warning .text {
+            font-size: 0.85rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        .alert-warning .text strong {
+            color: var(--primary);
+        }
+
+        /* Form Group */
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 28px;
         }
+
         label {
             display: block;
             margin-bottom: 8px;
-            color: #ff9999;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--dark);
         }
+
+        label .required {
+            color: var(--primary);
+        }
+
         input, textarea, select {
             width: 100%;
-            padding: 12px;
-            background: #1a1a1a;
-            border: 1px solid #330000;
-            color: #fff;
-            font-family: monospace;
+            padding: 12px 16px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            color: var(--dark);
+            transition: all 0.2s;
         }
-        button {
-            background: #4a0000;
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(221,51,51,0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Tombol Kirim */
+        .btn-submit {
+            width: 100%;
+            background: var(--primary);
             color: white;
-            padding: 12px 25px;
-            border: 1px solid #ff0000;
-            font-weight: bold;
+            border: none;
+            padding: 14px 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 40px;
             cursor: pointer;
-            font-family: monospace;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
-        button:hover {
-            background: #8b0000;
+
+        .btn-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
         }
-        .warning {
-            border-left: 3px solid #ff0000;
-            padding-left: 15px;
-            margin-bottom: 30px;
-            font-size: 0.8rem;
-        }
+
+        /* Loading */
         .loading {
             display: none;
             text-align: center;
             margin-top: 20px;
-            color: #ff9999;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .loading::before {
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Footer Note */
+        .footer-note {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 0.7rem;
+            text-align: center;
+            color: #aaa;
+        }
+
+        /* Footer Umum */
+        .site-footer {
+            background: var(--dark);
+            color: #aaa;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            font-size: 0.75rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-header {
+                padding: 20px 24px;
+            }
+            
+            .form-header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .form-body {
+                padding: 28px 24px;
+            }
+            
+            .alert-warning {
+                padding: 12px 16px;
+            }
+            
+            .site-header .container {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo-container">
-                <img src="LOGO_PARI.png" alt="Logo PARI" class="main-logo">
-                <span class="logo-text">PARI (Pergerakan Ar-Raniry)</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Kembali ke Beranda</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <div class="container form-container">
-            <h2 style="color:#ff4444;">TERMINAL SUARA RAKYAT</h2>
-            <div class="warning">
-                <p>⚠️ Laporan birokrasi, gagasan perlawanan, atau informasi penting lainnya akan dikirimkan secara anonim melalui saluran terenkripsi.</p>
-            </div>
+<!-- Header Navigasi -->
+<header class="site-header">
+    <div class="container">
+        <div class="logo-area">
+            <img src="LOGO_PARI.png" alt="Logo PARI">
+            <span class="logo-text">Pergerakan Ar-Raniry</span>
+        </div>
+        <a href="index.html" class="back-link">← KEMBALI KE BERANDA</a>
+    </div>
+</header>
 
-            <!-- FORMSPREE FORM DENGAN AJAX -->
-            <form id="pariForm" action="https://formspree.io/f/xaqvkjaa" method="POST" data-redirect="https://pergerakanarraniry-blip.github.io/PARI/terima-kasih.html">
+<main>
+    <div class="container">
+        <div class="form-wrapper">
+            <div class="form-card">
                 
-                <div class="form-group">
-                    <label>📝 KATEGORI PESAN</label>
-                    <select name="Kategori" required>
-                        <option value="">-- pilih --</option>
-                        <option value="Laporan Birokrasi">Laporan Birokrasi</option>
-                        <option value="Laporan Kekerasan Seksual">Laporan Kekerasan Seksual</option>
-                        <option value="Gagasan Perlawanan">Gagasan Perlawanan</option>
-                        <option value="Info Penting">Info Penting</option>
-                        <option value="Kritik & Saran">Kritik & Saran</option>
-                    </select>
+                <div class="form-header">
+                    <h1>TERMINAL SUARA RAKYAT</h1>
+                    <p>Suarakan laporan, gagasan, atau informasi penting secara anonim</p>
                 </div>
+                
+                <div class="form-body">
+                    
+                    <!-- Peringatan -->
+                    <div class="alert-warning">
+                        <div class="icon">⚠️</div>
+                        <div class="text">
+                            <strong>Pesan ini akan dikirim secara anonim.</strong><br>
+                            Laporan birokrasi, kekerasan seksual, gagasan perlawanan, atau informasi penting 
+                            lainnya akan diproses oleh jaringan PARI tanpa melacak identitas Anda.
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <label>✍️ ISI PESAN / LAPORAN</label>
-                    <textarea name="Pesan" rows="6" required placeholder="Tuliskan secara jelas dan padat..."></textarea>
+                    <!-- Formspree Form dengan AJAX -->
+                    <form id="pariForm" action="https://formspree.io/f/xaqvkjaa" method="POST" data-redirect="https://pergerakanarraniry-blip.github.io/PARI/terima-kasih.html">
+                        
+                        <div class="form-group">
+                            <label>📝 KATEGORI PESAN <span class="required">*</span></label>
+                            <select name="Kategori" required>
+                                <option value="">-- pilih --</option>
+                                <option value="Laporan Birokrasi">Laporan Birokrasi</option>
+                                <option value="Laporan Kekerasan Seksual">Laporan Kekerasan Seksual</option>
+                                <option value="Gagasan Perlawanan">Gagasan Perlawanan</option>
+                                <option value="Info Penting">Info Penting</option>
+                                <option value="Kritik & Saran">Kritik & Saran</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>✍️ ISI PESAN / LAPORAN <span class="required">*</span></label>
+                            <textarea name="Pesan" rows="6" required placeholder="Tuliskan secara jelas dan padat..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>📎 LAMPIRAN (opsional)</label>
+                            <input type="text" name="Lampiran" placeholder="Jika ada tautan atau kode rujukan">
+                        </div>
+
+                        <div class="form-group">
+                            <label>🏷️ NOMOR IDENTITAS (opsional)</label>
+                            <input type="text" name="ID_Rujukan" placeholder="Nomor telepon terenkripsi / email sekali pakai / inisial / tempat dan waktu jika ingin bertemu PARI">
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            KIRIM PESAN SECARA ANONIM →
+                        </button>
+                        <div class="loading" id="loadingMsg">Mengirim pesan...</div>
+                        
+                    </form>
+
+                    <div class="footer-note">
+                        <p>🔒 Pesan tidak akan dilacak IP-nya. Sistem menggunakan Formspree sebagai jembatan anonim.</p>
+                    </div>
                 </div>
-
-                <div class="form-group">
-                    <label>📎 LAMPIRAN (opsional)</label>
-                    <input type="text" name="Lampiran" placeholder="Jika ada tautan atau kode rujukan">
-                </div>
-
-                <div class="form-group">
-                    <label>🏷️ NOMOR IDENTITAS (opsional - untuk tindak lanjut)</label>
-                    <input type="text" name="ID_Rujukan" placeholder="Bisa nomor telepon terenkripsi / email sekali pakai / inisial / tempat dan waktu apabila urgent dan ingin bertemu PARI">
-                </div>
-
-                <button type="submit">KIRIM PESAN SECARA ANONIM →</button>
-                <div class="loading" id="loadingMsg">Mengirim pesan...</div>
-            </form>
-
-            <p style="margin-top: 30px; font-size: 0.7rem; text-align: center; color:#555;">Pesan tidak akan dilacak IP-nya. Sistem menggunakan Formspree sebagai jembatan anonim.</p>
+            </div>
         </div>
-    </main>
+    </div>
+</main>
 
-    <footer>
-        <div class="container">
-            <p>PUBLIKASI RESMI PERGERAKAN AR-RANIRY (PARI) © 2026</p>
-        </div>
-    </footer>
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="container">
+        <p>PUBLIKASI RESMI PERGERAKAN AR-RANIRY (PARI) © 2026</p>
+        <p style="margin-top: 6px; font-size: 0.7rem; opacity: 0.6;">SUARA RAKYAT ADALAH SUARA KEBENARAN</p>
+    </div>
+</footer>
 
-    <script>
-        const form = document.getElementById('pariForm');
-        const loadingMsg = document.getElementById('loadingMsg');
-        
+<!-- JavaScript untuk AJAX Submit -->
+<script>
+    const form = document.getElementById('pariForm');
+    const loadingMsg = document.getElementById('loadingMsg');
+    
+    if (form) {
         form.addEventListener('submit', async function(event) {
             event.preventDefault();
             
@@ -157,6 +413,8 @@
                 loadingMsg.style.display = 'none';
             }
         });
-    </script>
+    }
+</script>
+
 </body>
 </html>
