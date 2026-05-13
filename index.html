@@ -2,100 +2,481 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PARI | Pergerakan Ar-Raniry - Kedaulatan Nalar</title>
-    <meta name="description" content="PARI (Pergerakan Ar-Raniry) adalah gerakan mahasiswa yang memperjuangkan kedaulatan nalar, keadilan kampus, dan perlawanan terhadap birokrasi represif.">
-    <meta name="keywords" content="PARI, Ar-Raniry, pergerakan mahasiswa, kedaulatan nalar, advokasi kampus">
-    <meta name="author" content="PARI (Pergerakan Ar-Raniry)">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="LOGO_PARI.png">
+    <style>
+        /* ========== CSS INTERNAL - LANGSUNG DI DALAM HTML ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            background: #1a1a1a;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .main-logo {
+            height: 45px;
+            width: auto;
+        }
+
+        .logo-text {
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .logo-text a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 8px 0;
+        }
+
+        .nav-links li a:hover {
+            color: #ff4444;
+        }
+
+        .nav-highlight {
+            background: #ff4444;
+            padding: 8px 20px !important;
+            border-radius: 30px;
+        }
+
+        .nav-highlight:hover {
+            background: #cc0000;
+            color: white !important;
+        }
+
+        /* ========== SLIDER ========== */
+        .hero-slider {
+            background: #e0e0e0;
+            padding: 40px 0;
+        }
+
+        .slider-container {
+            position: relative;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 40px;
+        }
+
+        .slide-category {
+            background: #ff4444;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .slide h1 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .slide-date {
+            color: #888;
+            font-size: 0.8rem;
+            margin: 10px 0;
+        }
+
+        .slide-excerpt {
+            color: #555;
+            margin: 15px 0;
+        }
+
+        .read-more {
+            color: #ff4444;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+
+        .slider-btn:hover {
+            background: #ff4444;
+        }
+
+        .slider-prev { left: 15px; }
+        .slider-next { right: 15px; }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #ff4444;
+            width: 25px;
+            border-radius: 10px;
+        }
+
+        /* ========== CONTENT SECTIONS ========== */
+        .content {
+            padding: 60px 0;
+            border-bottom: 1px solid #ddd;
+            background: white;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            border-left: 4px solid #ff4444;
+            padding-left: 15px;
+        }
+
+        .manifes-box {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .manifes-text {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .secure-box {
+            background: #ff4444;
+            color: white;
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Log Aktivitas */
+        .log-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .log-item {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ff4444;
+        }
+
+        .date {
+            font-weight: bold;
+            color: #ff4444;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Kartu Publikasi */
+        .karya-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .karya-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+
+        .karya-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: #ff4444;
+        }
+
+        .karya-card span {
+            color: #ff4444;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .karya-card h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .karya-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-link {
+            color: #ff4444;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Banner */
+        .transmission-banner {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .transmission-banner h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .btn-pari {
+            background: #ff4444;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .btn-pari:hover {
+            background: #cc0000;
+        }
+
+        /* Kontak */
+        .instruction-box {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid #ff4444;
+        }
+
+        .warning-text {
+            font-weight: bold;
+            color: #ff4444;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .protocol {
+            margin: 20px 0;
+        }
+
+        .protocol ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+        .protocol li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .protocol li::before {
+            content: "▹";
+            color: #ff4444;
+            position: absolute;
+            left: 0;
+        }
+
+        .motto {
+            text-align: center;
+            font-style: italic;
+            color: #888;
+            margin-top: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                justify-content: center;
+            }
+            
+            .slide h1 {
+                font-size: 1.2rem;
+            }
+            
+            .slide {
+                padding: 20px;
+            }
+            
+            .karya-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            .main-logo {
+                height: 35px;
+            }
+            
+            .transmission-banner {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- ==================== HEADER (ARAH JUANG STYLE) ==================== -->
-<header class="header-arahjuang">
+<header>
     <div class="container">
-                    <span class="site-title">Pergerakan Ar-Raniry</span>
-                </a>
+        <nav>
+            <div class="logo-container">
+                <img src="LOGO_PARI.png" alt="Logo PARI" class="main-logo">
+                <span class="logo-text">Pergerakan Ar-Raniry</span>
             </div>
-        </div>
-        
-        <div class="main-nav-wrapper">
-            <nav id="site-navigation" class="main-navigation">
-                <div class="menu-main-container">
-                    <ul id="primary-menu" class="menu">
-                        <li class="menu-item"><a href="#manifes">Manifes</a></li>
-                        <li class="menu-item"><a href="#log">Aktivitas</a></li>
-                        <li class="menu-item"><a href="#karya">Publikasi</a></li>
-                        <li class="menu-item"><a href="suara-rakyat.html" class="btn-suara">Suara Rakyat</a></li>
-                    </ul>
-                </div>
-            </nav>
-            
-            <!-- Mobile menu toggle -->
-            <div class="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Mobile menu (hidden on desktop) -->
-    <div class="mobile-menu-container">
-        <ul id="mobile-menu" class="mobile-menu">
-            <li><a href="#manifes">Manifes</a></li>
-            <li><a href="#log">Aktivitas</a></li>
-            <li><a href="#karya">Publikasi</a></li>
-            <li><a href="suara-rakyat.html">Suara Rakyat</a></li>
-        </ul>
+            <ul class="nav-links">
+                <li><a href="#manifes">Manifes</a></li>
+                <li><a href="#log">Aktivitas</a></li>
+                <li><a href="#karya">Publikasi</a></li>
+                <li><a href="suara-rakyat.html" class="nav-highlight">Suara Rakyat</a></li>
+            </ul>
+        </nav>
     </div>
 </header>
 
 <main>
 
-<!-- ==================== SLIDER BERITA KONTROVERSIAL ==================== -->
-<section class="hero-slider">
-    <div class="container">
-        <div class="slider-container">
-            <div class="slider-track" id="sliderTrack">
-                
-                <!-- Slide 1 -->
-                <div class="slide">
-                    <div class="slide-content">
+    <!-- SLIDER -->
+    <section class="hero-slider">
+        <div class="container">
+            <div class="slider-container">
+                <div class="slider-track" id="sliderTrack">
+                    <div class="slide">
                         <span class="slide-category">KONTROVERSI</span>
                         <h1>Dana BEM Tembus Ratusan Juta, Kemana Alirannya?</h1>
                         <div class="slide-date">14 Mei 2026 | Investigasi PARI</div>
                         <p class="slide-excerpt">Laporan internal mengungkap ketidakjelasan alokasi dana kemahasiswaan. PARI mendesak audit transparan dan keterbukaan informasi publik.</p>
                         <a href="#" class="read-more">Baca selengkapnya →</a>
                     </div>
-                </div>
-                
-                <!-- Slide 2 -->
-                <div class="slide">
-                    <div class="slide-content">
+                    <div class="slide">
                         <span class="slide-category">KEBOCORAN</span>
                         <h1>Dokumen Rapat Tertutup: Menyoal Kenaikan UKT Sepihak</h1>
                         <div class="slide-date">12 Mei 2026 | Eksklusif</div>
                         <p class="slide-excerpt">Notulensi rapat birokrasi yang bocor menunjukkan skema kenaikan biaya kuliah tanpa melibatkan perwakilan mahasiswa. PARI menolak!</p>
                         <a href="#" class="read-more">Baca selengkapnya →</a>
                     </div>
-                </div>
-                
-                <!-- Slide 3 -->
-                <div class="slide">
-                    <div class="slide-content">
+                    <div class="slide">
                         <span class="slide-category">ALARM</span>
                         <h1>Kantor Fakultas Jadi Tempat Praktik Nepotisme?</h1>
                         <div class="slide-date">10 Mei 2026 | Laporan Khusus</div>
                         <p class="slide-excerpt">Data menunjukkan pola rekrutmen tendensius berdasarkan relasi kekerabatan. PARI menyoroti pentingnya meritokrasi di kampus.</p>
                         <a href="#" class="read-more">Baca selengkapnya →</a>
                     </div>
-                </div>
-
-                <!-- Slide 4 -->
-                <div class="slide">
-                    <div class="slide-content">
+                    <div class="slide">
                         <span class="slide-category">PEMBUNGKAMAN</span>
                         <h1>Dosen vs Mahasiswa: Larangan Diskusi Kelas</h1>
                         <div class="slide-date">8 Mei 2026 | Keadilan Kampus</div>
@@ -103,125 +484,122 @@
                         <a href="#" class="read-more">Baca selengkapnya →</a>
                     </div>
                 </div>
-
+                <button class="slider-btn slider-prev" id="prevBtn">‹</button>
+                <button class="slider-btn slider-next" id="nextBtn">›</button>
             </div>
-            <button class="slider-btn slider-prev" id="prevBtn">‹</button>
-            <button class="slider-btn slider-next" id="nextBtn">›</button>
+            <div class="slider-dots" id="sliderDots"></div>
         </div>
-        <div class="slider-dots" id="sliderDots"></div>
-    </div>
-</section>
+    </section>
 
-<!-- ==================== MANIFES PERGERAKAN ==================== -->
-<section id="manifes" class="content">
-    <div class="container">
-        <h2>Manifes Pergerakan</h2>
-        <div class="manifes-box">
-            <p class="manifes-text">Bergeraklah secara mandiri tanpa menunggu komando yang tak kunjung datang. Jangan hiraukan bisingnya birokrasi atau upaya pembungkaman yang mencoba menghentikan langkahmu. Kekuatan sejati lahir dari keberanian individu yang menolak untuk tunduk.</p>
-            <p class="manifes-text">Kembalilah membaca buku, karena setiap halaman adalah peluru untuk menghancurkan kebodohan yang dipelihara. Lawan segala bentuk ketidakadilan dengan pikiran yang tajam. Bersuaralah dengan lantang melawan penindasan, dan menulislah untuk mengabadikan perlawanan. Diam adalah pengkhianatan terhadap nalar.</p>
-            <div class="secure-box">BACA • LAWAN • SUARAKAN • TULIS</div>
-        </div>
-    </div>
-</section>
-
-<!-- ==================== LOG AKTIVITAS ==================== -->
-<section id="log" class="content">
-    <div class="container">
-        <h2>Log Aktivitas</h2>
-        <div class="log-list">
-            <div class="log-item priority">
-                <span class="date">13 MEI 2026</span>
-                <div class="log-text"><strong>INFILTRASI STRUKTURAL:</strong> Pemetaan relasi kuasa birokrasi fakultas sedang dilakukan intensif.</div>
-            </div>
-            <div class="log-item">
-                <span class="date">12 MEI 2026</span>
-                <div class="log-text"><strong>EKSPANSI BIBLIOTEKA:</strong> Repositori literatur kritis diperluas dengan 20+ judul baru.</div>
-            </div>
-            <div class="log-item priority">
-                <span class="date">11 MEI 2026</span>
-                <div class="log-text"><strong>MANIFES MORAL:</strong> Deklarasi Ruang Aman diaktivasi dengan kebijakan Zero Tolerance terhadap predator akademik.</div>
-            </div>
-            <div class="log-item">
-                <span class="date">11 MEI 2026</span>
-                <div class="log-text"><strong>SYSTEM INITIALIZED:</strong> Core terminal PARI Ar-Raniry resmi online. Protokol enkripsi internal aktif.</div>
-            </div>
-            <div class="log-item priority">
-                <span class="date">08 MEI 2026</span>
-                <div class="log-text"><strong>OBSERVASI TERTUTUP:</strong> Pemetaan aset birokrasi fakultas telah memasuki tahap analisis kelemahan struktural.</div>
+    <!-- MANIFES -->
+    <section id="manifes" class="content">
+        <div class="container">
+            <h2>Manifes Pergerakan</h2>
+            <div class="manifes-box">
+                <p class="manifes-text">Bergeraklah secara mandiri tanpa menunggu komando yang tak kunjung datang. Jangan hiraukan bisingnya birokrasi atau upaya pembungkaman yang mencoba menghentikan langkahmu. Kekuatan sejati lahir dari keberanian individu yang menolak untuk tunduk.</p>
+                <p class="manifes-text">Kembalilah membaca buku, karena setiap halaman adalah peluru untuk menghancurkan kebodohan yang dipelihara. Lawan segala bentuk ketidakadilan dengan pikiran yang tajam. Bersuaralah dengan lantang melawan penindasan, dan menulislah untuk mengabadikan perlawanan. Diam adalah pengkhianatan terhadap nalar.</p>
+                <div class="secure-box">BACA • LAWAN • SUARAKAN • TULIS</div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ==================== ARSIP PUBLIKASI ==================== -->
-<section id="karya" class="content">
-    <div class="container">
-        <h2>Publikasi & Arsip</h2>
-        <p class="section-subtitle">Dokumen resmi, risalah, dan kurasi literatur perlawanan</p>
-
-        <div class="transmission-banner">
-            <h3>Dinding Subversi</h3>
-            <p>Punya laporan terkait birokrasi atau gagasan perlawanan? Suarakan secara anonim di terminal ini.</p>
-            <a href="suara-rakyat.html" class="btn-pari">Masuk ke Terminal Suara →</a>
-        </div>
-
-        <div class="karya-grid">
-            <div class="karya-card highlight-urgent">
-                <span>DOKUMEN.002/ETK</span>
-                <h3>Deklarasi Ruang Aman</h3>
-                <p>Gugatan terhadap predator birokrasi dan supremasi moral atas kekerasan seksual di lingkungan kampus.</p>
-                <a href="ruang-aman.html" class="btn-link">Akses Dokumen →</a>
-            </div>
-            <div class="karya-card">
-                <span>DOKUMEN.001/PND</span>
-                <h3>Manifes Pendidikan</h3>
-                <p>Analisis kritis terhadap sistem korporatisasi dan birokrasi fakultas dalam bingkai nalar murni.</p>
-                <a href="manifes-001.html" class="btn-link">Akses Dokumen →</a>
-            </div>
-            <div class="karya-card">
-                <span>MANIFESTO/2026</span>
-                <h3>Manifesto PARI 2026</h3>
-                <p>Pernyataan sikap fundamental mengenai arah perjuangan dan kedaulatan nalar mahasiswa.</p>
-                <a href="manifesto-2026.html" class="btn-link">Akses Dokumen →</a>
-            </div>
-            <div class="karya-card">
-                <span>DOKUMEN.003/TKT</span>
-                <h3>Protokol Nalar Otonom</h3>
-                <p>Panduan taktis membangun sel diskusi mandiri di sudut kantin hingga perpustakaan.</p>
-                <a href="protokol-otonom.html" class="btn-link">Buka Berkas →</a>
-            </div>
-            <div class="karya-card">
-                <span>BIBLIOTEKA/2026</span>
-                <h3>Perpustakaan Bayangan</h3>
-                <p>Kurasi literatur perlawanan untuk menghancurkan nalar budak dan memicu api pemberontakan intelektual.</p>
-                <a href="archive-literasi.html" class="btn-link">Buka Berkas →</a>
+    <!-- LOG AKTIVITAS -->
+    <section id="log" class="content">
+        <div class="container">
+            <h2>Log Aktivitas</h2>
+            <div class="log-list">
+                <div class="log-item">
+                    <span class="date">13 MEI 2026</span>
+                    <p><strong>INFILTRASI STRUKTURAL:</strong> Pemetaan relasi kuasa birokrasi fakultas sedang dilakukan intensif.</p>
+                </div>
+                <div class="log-item">
+                    <span class="date">12 MEI 2026</span>
+                    <p><strong>EKSPANSI BIBLIOTEKA:</strong> Repositori literatur kritis diperluas dengan 20+ judul baru.</p>
+                </div>
+                <div class="log-item">
+                    <span class="date">11 MEI 2026</span>
+                    <p><strong>MANIFES MORAL:</strong> Deklarasi Ruang Aman diaktivasi dengan kebijakan Zero Tolerance terhadap predator akademik.</p>
+                </div>
+                <div class="log-item">
+                    <span class="date">11 MEI 2026</span>
+                    <p><strong>SYSTEM INITIALIZED:</strong> Core terminal PARI Ar-Raniry resmi online. Protokol enkripsi internal aktif.</p>
+                </div>
+                <div class="log-item">
+                    <span class="date">08 MEI 2026</span>
+                    <p><strong>OBSERVASI TERTUTUP:</strong> Pemetaan aset birokrasi fakultas telah memasuki tahap analisis kelemahan struktural.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ==================== TITIK TEMU INFORMASI ==================== -->
-<section id="kontak" class="content">
-    <div class="container">
-        <h2>Titik Temu</h2>
-        <div class="instruction-box">
-            <span class="warning-text">INSTRUKSI OPERASIONAL</span>
-            <p>Kami tidak hadir dalam ruang obrolan digital yang rentan pengawasan. Kehadiran kami bersifat fisik dan kontekstual. Pantau mading di setiap fakultas secara berkala.</p>
+    <!-- PUBLIKASI & ARSIP -->
+    <section id="karya" class="content">
+        <div class="container">
+            <h2>Publikasi & Arsip</h2>
+            <p style="margin-bottom: 20px; color: #666;">Dokumen resmi, risalah, dan kurasi literatur perlawanan</p>
+
+            <div class="transmission-banner">
+                <h3>Dinding Subversi</h3>
+                <p>Punya laporan terkait birokrasi atau gagasan perlawanan? Suarakan secara anonim di terminal ini.</p>
+                <a href="suara-rakyat.html" class="btn-pari">Masuk ke Terminal Suara →</a>
+            </div>
+
+            <div class="karya-grid">
+                <div class="karya-card">
+                    <span>DOKUMEN.002/ETK</span>
+                    <h3>Deklarasi Ruang Aman</h3>
+                    <p>Gugatan terhadap predator birokrasi dan supremasi moral atas kekerasan seksual di lingkungan kampus.</p>
+                    <a href="ruang-aman.html" class="btn-link">Akses Dokumen →</a>
+                </div>
+                <div class="karya-card">
+                    <span>DOKUMEN.001/PND</span>
+                    <h3>Manifes Pendidikan</h3>
+                    <p>Analisis kritis terhadap sistem korporatisasi dan birokrasi fakultas dalam bingkai nalar murni.</p>
+                    <a href="manifes-001.html" class="btn-link">Akses Dokumen →</a>
+                </div>
+                <div class="karya-card">
+                    <span>MANIFESTO/2026</span>
+                    <h3>Manifesto PARI 2026</h3>
+                    <p>Pernyataan sikap fundamental mengenai arah perjuangan dan kedaulatan nalar mahasiswa.</p>
+                    <a href="manifesto-2026.html" class="btn-link">Akses Dokumen →</a>
+                </div>
+                <div class="karya-card">
+                    <span>DOKUMEN.003/TKT</span>
+                    <h3>Protokol Nalar Otonom</h3>
+                    <p>Panduan taktis membangun sel diskusi mandiri di sudut kantin hingga perpustakaan.</p>
+                    <a href="protokol-otonom.html" class="btn-link">Buka Berkas →</a>
+                </div>
+                <div class="karya-card">
+                    <span>BIBLIOTEKA/2026</span>
+                    <h3>Perpustakaan Bayangan</h3>
+                    <p>Kurasi literatur perlawanan untuk menghancurkan nalar budak dan memicu api pemberontakan intelektual.</p>
+                    <a href="archive-literasi.html" class="btn-link">Buka Berkas →</a>
+                </div>
+            </div>
         </div>
-        <div class="protocol">
-            <h3 style="font-weight: 600; margin-bottom: 12px;">Protokol Simpatisan</h3>
-            <ul>
-                <li>Verifikasi tanda khusus pada setiap selebaran fisik untuk memastikan keaslian dokumen.</li>
-                <li>Sebarkan pesan melalui dialog dan kesadaran, hindari dokumentasi digital yang tidak perlu.</li>
-                <li>Tetap anonim. Tetap waspada. Lindungi kawan seperjuangan.</li>
-            </ul>
+    </section>
+
+    <!-- TITIK TEMU -->
+    <section class="content">
+        <div class="container">
+            <h2>Titik Temu</h2>
+            <div class="instruction-box">
+                <span class="warning-text">INSTRUKSI OPERASIONAL</span>
+                <p>Kami tidak hadir dalam ruang obrolan digital yang rentan pengawasan. Kehadiran kami bersifat fisik dan kontekstual. Pantau mading di setiap fakultas secara berkala.</p>
+            </div>
+            <div class="protocol">
+                <h3>Protokol Simpatisan</h3>
+                <ul>
+                    <li>Verifikasi tanda khusus pada setiap selebaran fisik untuk memastikan keaslian dokumen.</li>
+                    <li>Sebarkan pesan melalui dialog dan kesadaran, hindari dokumentasi digital yang tidak perlu.</li>
+                    <li>Tetap anonim. Tetap waspada. Lindungi kawan seperjuangan.</li>
+                </ul>
+            </div>
+            <p class="motto">"Kami ada di tempat yang Anda lihat, namun tetap tak tersentuh."</p>
         </div>
-        <p class="motto">"Kami ada di tempat yang Anda lihat, namun tetap tak tersentuh."</p>
-    </div>
-</section>
+    </section>
 </main>
 
-<!-- ==================== FOOTER ==================== -->
 <footer>
     <div class="container">
         <p>PUBLIKASI RESMI PERGERAKAN AR-RANIRY (PARI) © 2026</p>
@@ -229,24 +607,8 @@
     </div>
 </footer>
 
-<!-- ==================== JAVASCRIPT ==================== -->
 <script>
-    // ========== MOBILE MENU TOGGLE ==========
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileMenuContainer = document.querySelector('.mobile-menu-container');
-    
-    if (menuToggle && mobileMenuContainer) {
-        menuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            if (mobileMenuContainer.style.display === 'block') {
-                mobileMenuContainer.style.display = 'none';
-            } else {
-                mobileMenuContainer.style.display = 'block';
-            }
-        });
-    }
-
-    // ========== SLIDER BERITA ==========
+    // ========== SLIDER JAVASCRIPT ==========
     const track = document.getElementById('sliderTrack');
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.getElementById('prevBtn');
@@ -285,47 +647,23 @@
         updateDots();
     }
     
-    function nextSlide() {
-        goToSlide(currentIndex + 1);
-    }
-    
-    function prevSlide() {
-        goToSlide(currentIndex - 1);
-    }
-    
     if (prevBtn && nextBtn) {
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+        prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
     }
     
     // Auto slide every 5 seconds
-    let autoSlide = setInterval(nextSlide, 5000);
+    let autoSlide = setInterval(() => goToSlide(currentIndex + 1), 5000);
     
     const sliderContainer = document.querySelector('.slider-container');
     if (sliderContainer) {
         sliderContainer.addEventListener('mouseenter', () => clearInterval(autoSlide));
         sliderContainer.addEventListener('mouseleave', () => {
-            autoSlide = setInterval(nextSlide, 5000);
+            autoSlide = setInterval(() => goToSlide(currentIndex + 1), 5000);
         });
     }
     
     createDots();
-
-    // Smooth scroll untuk anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
-                // Tutup mobile menu jika terbuka
-                if (mobileMenuContainer && mobileMenuContainer.style.display === 'block') {
-                    mobileMenuContainer.style.display = 'none';
-                    if (menuToggle) menuToggle.classList.remove('active');
-                }
-            }
-        });
-    });
 </script>
 
 </body>
