@@ -3,202 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ID: PARI/DOC.002 | MANIFES PERLAWANAN</title>
+    <title>[DOKUMEN.002/ETK] Deklarasi Ruang Aman | PARI</title>
+    <link rel="icon" type="image/png" href="LOGO_PARI.png">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estetika Dokumen Darurat PARI */
-        .manifesto-body {
-            background-color: #050505;
-            border: 1px solid #4a0000;
-            padding: 70px 50px;
-            margin: 50px auto;
-            max-width: 900px;
-            box-shadow: 0 0 80px rgba(74, 0, 0, 0.2);
-            position: relative;
-        }
-
-        /* Garis Merah Penanda Urgensi Tinggi */
-        .manifesto-body::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 5px; height: 100%;
-            background-color: #ff0000;
-        }
-
-        .alert-stamp {
-            border: 2px solid #ff0000;
-            color: #ff0000;
-            padding: 10px 20px;
-            display: inline-block;
-            font-family: Arial, sans-serif;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            transform: rotate(-2deg);
-            margin-bottom: 30px;
-            font-size: 0.9rem;
-        }
-
-        .header-meta {
-            font-family: 'Courier New', Courier, monospace;
-            border-bottom: 1px solid #333;
-            padding-bottom: 20px;
-            margin-bottom: 40px;
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        .header-meta strong { color: #fff; }
-
-        h1.title {
-            font-size: 2.5rem;
-            font-style: italic;
-            line-height: 1.2;
-            margin-bottom: 30px;
+        /* Gaya Khusus Dokumen Ruang Aman */
+        body {
+            background-color: #000;
             color: #fff;
         }
 
-        .urgent-text {
-            font-size: 1.25rem;
-            line-height: 1.8;
-            text-align: justify;
-            margin-bottom: 40px;
-            color: #eee;
+        .safety-container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: #050505;
+            border: 1px solid #4a0000;
+            position: relative;
+            overflow: hidden;
         }
 
-        .urgent-text span {
-            background: linear-gradient(transparent 70%, #4a0000 0%);
+        /* Header dengan garis merah urgensi */
+        .safety-header {
+            background: linear-gradient(135deg, #1a0000 0%, #000000 100%);
+            padding: 40px 50px 30px;
+            border-bottom: 3px solid #ff0000;
+            text-align: center;
         }
 
-        .grid-points {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            margin: 60px 0;
+        .doc-badge {
+            display: inline-block;
+            background: #ff0000;
+            color: #fff;
+            padding: 5px 20px;
+            font-family: Arial, sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
-        .point-card {
-            border: 1px solid #222;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.02);
-            transition: 0.3s;
-        }
-
-        .point-card:hover {
-            border-color: #ff0000;
-            background: rgba(74, 0, 0, 0.05);
-        }
-
-        .point-card h2 {
-            font-size: 1.2rem;
-            color: #ff0000;
+        .safety-header h1 {
+            font-size: 2.2rem;
+            font-style: italic;
+            font-weight: normal;
             margin-bottom: 15px;
-            text-align: left;
+            line-height: 1.3;
+        }
+
+        .safety-header .subtitle {
+            color: #ff6666;
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
             letter-spacing: 2px;
         }
 
-        .block-quote {
-            border-left: 3px solid #ff0000;
-            padding-left: 30px;
-            margin: 50px 0;
-            font-style: italic;
-            font-size: 1.4rem;
-            color: #fff;
-        }
-
-        .footer-metadata {
-            margin-top: 100px;
-            padding-top: 30px;
-            border-top: 1px double #444;
-            font-family: Arial, sans-serif;
-            font-size: 0.8rem;
-            color: #666;
+        /* Metadata dokumen */
+        .doc-metadata {
+            background: #0a0a0a;
+            padding: 15px 50px;
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-bottom: 1px solid #222;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        .doc-metadata span {
+            color: #ff9999;
+        }
+
+        /* Isi utama */
+        .safety-content {
+            padding: 50px;
+        }
+
+        .safety-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            text-align: justify;
+            margin-bottom: 25px;
+            color: #ddd;
+        }
+
+        /* Poin utama deklarasi */
+        .declaration-points {
+            margin: 50px 0;
+            background: rgba(74, 0, 0, 0.15);
+            border-left: 4px solid #ff0000;
+            padding: 30px;
+        }
+
+        .declaration-points h3 {
+            color: #ff6666;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .point-item {
+            margin-bottom: 25px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .point-item::before {
+            content: "✹";
+            color: #ff0000;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .point-item strong {
+            color: #fff;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .point-item p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            color: #bbb;
+        }
+
+        /* Kotak komitmen */
+        .commitment-box {
+            background: #0a0000;
+            border: 1px solid #4a0000;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .commitment-box h3 {
+            color: #ff4444;
+            margin-bottom: 15px;
+        }
+
+        .commitment-box p {
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        /* Mekanisme pelaporan */
+        .report-mechanism {
+            background: #0c0c0c;
+            padding: 30px;
+            margin-top: 40px;
+            border: 1px dashed #4a0000;
+        }
+
+        .report-mechanism h3 {
+            color: #ff8888;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .mechanism-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mechanism-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #222;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .mechanism-list li::before {
+            content: "▶";
+            color: #ff4444;
+            font-size: 0.7rem;
+        }
+
+        /* Footer dokumen */
+        .doc-footer {
+            background: #0a0a0a;
+            padding: 30px 50px;
+            border-top: 1px solid #222;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-family: Arial, sans-serif;
+            font-size: 0.7rem;
+            color: #555;
+        }
+
+        .stamp {
+            font-family: 'Courier New', monospace;
+            color: #ff4444;
         }
 
         .back-nav {
-            margin: 30px 0;
             display: inline-block;
+            margin: 30px 0 0 50px;
             color: #888;
             text-decoration: none;
             font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            transition: 0.3s;
         }
 
-        .back-nav:hover { color: #fff; }
+        .back-nav:hover {
+            color: #fff;
+        }
 
         @media (max-width: 768px) {
-            .manifesto-body { padding: 40px 20px; margin: 10px; }
-            h1.title { font-size: 1.8rem; }
+            .safety-header { padding: 30px 20px; }
+            .safety-header h1 { font-size: 1.5rem; }
+            .safety-content { padding: 30px 20px; }
+            .doc-metadata { padding: 15px 20px; flex-direction: column; }
+            .doc-footer { padding: 20px; flex-direction: column; gap: 10px; text-align: center; }
+            .back-nav { margin-left: 20px; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <a href="index.html" class="back-nav">← KEMBALI KE INDEKS ARSIP</a>
+        <a href="index.html" class="back-nav">← KEMBALI KE TERMINAL ARSIP</a>
 
-        <main class="manifesto-body">
-            <div class="alert-stamp">Prioritas: Tingkat Tinggi</div>
-
-            <div class="header-meta">
-                <p><strong>ID:</strong> PARI/AR-RANIRY/DOC.002</p>
-                <p><strong>KATEGORI:</strong> Etika & Keamanan Mahasiswa / Ref.002</p>
-                <p><strong>KLASIFIKASI:</strong> Perlawanan Moral / Deklarasi Ruang Aman</p>
+        <main class="safety-container">
+            <div class="safety-header">
+                <div class="doc-badge">DEKLARASI RESMI - PRIORITAS TERTINGGI</div>
+                <h1>Deklarasi Ruang Aman<br>PARI Ar-Raniry</h1>
+                <div class="subtitle">Gugatan terhadap predator birokrasi dan supremasi moral atas kekerasan seksual di lingkungan kampus</div>
             </div>
 
-            <h1 class="title">Membedah Hegemoni Predator:<br>Manifes Perlawanan Terhadap Kekerasan Seksual</h1>
-
-            <section class="urgent-text">
-                <p>
-                    Kampus seharusnya menjadi mimbar suci di mana akal budi dipertajam, bukan menjadi rimba gelap di mana relasi kuasa disalahgunakan untuk memangsa. Kami melihat kekerasan seksual bukan hanya sebagai serangan fisik, melainkan sebagai bentuk <span>teror intelektual</span> yang membungkam potensi dan menghancurkan kedaulatan individu secara sistemik.
-                </p>
-                <p style="margin-top: 20px;">
-                    Seringkali, birokrasi kampus lebih sibuk menjaga <strong>'nama baik'</strong> institusi daripada melindungi martabat korbannya. Kami menggugat feodalisme akademik yang melindungi predator di balik jubah jabatan dan gelar. Di PARI, kami percaya bahwa tidak ada ruang bagi nalar yang merdeka jika tubuh dan jiwa mahasiswa masih terancam oleh syahwat kekuasaan yang manipulatif.
-                </p>
-            </section>
-
-            <div class="block-quote">
-                "Jika birokrasi memilih untuk tuli terhadap jeritan korban, maka kami akan menjadi gema yang tidak akan pernah berhenti menghantui ruang-ruang kerja mereka."
+            <div class="doc-metadata">
+                <div><span>ID DOKUMEN:</span> DOKUMEN.002/ETK</div>
+                <div><span>TANGGAL AKTIVASI:</span> 11 MEI 2026</div>
+                <div><span>STATUS:</span> <span style="color:#ff4444;">ZERO TOLERANCE - BERLAKU AKTIF</span></div>
             </div>
 
-            <div class="grid-points">
-                <div class="point-card">
-                    <h2>ZERO TOLERANCE MUTLAK</h2>
-                    <p>Tidak ada kompromi administratif bagi pelaku kekerasan seksual. Jabatan struktural, pengaruh politik, atau gelar akademik bukan tameng hukum di lingkungan Ar-Raniry. Siapapun yang menggunakan kuasanya untuk melecehkan, telah kehilangan haknya untuk disebut sebagai pendidik.</p>
+            <div class="safety-content">
+                <p>Kampus seharusnya menjadi benteng terakhir nalar kritis dan kawah candradimuka bagi pembentukan karakter intelektual yang merdeka. Namun, ironi besar terjadi ketika institusi yang seharusnya melindungi justru menjadi ruang paling rentan bagi praktik kekerasan seksual dan penyalahgunaan kuasa. PARI dengan tegas menyatakan bahwa <strong>TIDAK ADA RUANG</strong> bagi predator akademik yang berlindung di balik jubah jabatan, gelar, atau pengaruh struktural.</p>
+
+                <p>Deklarasi ini lahir dari kegelisahan kolektif terhadap sistem birokrasi yang seringkali lebih sibuk menjaga <em>"nama baik institusi"</em> daripada melindungi martabat korban. Kami menyaksikan bagaimana prosedur yang berbelit, intimidasi terselubung, dan budaya <em>victim blaming</em> menjadi tameng bagi pelaku untuk terus bercokol di lingkungan akademik. PARI menolak hegemoni moral yang membiarkan korban tenggelam dalam diam.</p>
+
+                <div class="declaration-points">
+                    <h3>DEKLARASI PARI: TIGA PILAR RUANG AMAN</h3>
+                    
+                    <div class="point-item">
+                        <strong>PILAR 1: ZERO TOLERANCE MUTLAK</strong>
+                        <p>Tidak ada kompromi administratif bagi pelaku kekerasan seksual dalam bentuk apapun. Jabatan struktural, pengaruh politik, jaringan kekuasaan, atau gelar akademik BUKANLAH tameng hukum di lingkungan Ar-Raniry. Siapapun yang menggunakan posisinya untuk melecehkan, secara otomatis kehilangan hak moral untuk disebut sebagai pendidik atau pemimpin.</p>
+                    </div>
+
+                    <div class="point-item">
+                        <strong>PILAR 2: PERLINDUNGAN KORBAN</strong>
+                        <p>Kami menuntut sistem pendampingan yang independen, bebas dari intimidasi birokrasi, dan menjamin kerahasiaan identitas secara penuh. PARI berkomitmen untuk bertindak sebagai pengawas eksternal dan menyediakan jalur pelaporan alternatif bagi korban yang tidak percaya pada mekanisme institusional yang ada.</p>
+                    </div>
+
+                    <div class="point-item">
+                        <strong>PILAR 3: DEKONSTRUKSI STIGMA</strong>
+                        <p>Melawan segala bentuk <em>victim blaming</em> yang diproduksi secara sadar maupun tidak dalam ruang akademik. Kesalahan berada mutlak pada pelaku, bukan pada mereka yang berani bersuara, bukan pada pakaian yang mereka kenakan, bukan pula pada waktu atau tempat kejadian. Nalar yang sehat tidak akan menyalahkan cahaya atas kegelapan yang diciptakan predator.</p>
+                    </div>
                 </div>
 
-                <div class="point-card">
-                    <h2>PERLINDUNGAN KORBAN</h2>
-                    <p>Kami menuntut sistem pendampingan yang independen, bebas dari intimidasi birokrasi, dan menjamin kerahasiaan identitas secara penuh. PARI akan bertindak sebagai pengawas eksternal untuk memastikan tidak ada rantai trauma yang diperpanjang oleh prosedur kampus yang berbelit-belit.</p>
+                <div class="commitment-box">
+                    <h3>KOMITMEN PARI</h3>
+                    <p>"Jika birokrasi memilih untuk tuli terhadap jeritan korban, maka kami akan menjadi gema yang tidak akan pernah berhenti menghantui ruang-ruang kekuasaan mereka. Kami tidak akan diam sampai setiap sudut kampus benar-benar aman bagi setiap individu."</p>
                 </div>
 
-                <div class="point-card">
-                    <h2>DEKONSTRUKSI STIGMA</h2>
-                    <p>Melawan segala bentuk <em>victim blaming</em> yang diproduksi secara sadar maupun tidak dalam ruang akademik. Kesalahan berada mutlak pada pelaku, bukan pada mereka yang berani bersuara atau pada pakaian yang mereka kenakan. Nalar yang sehat tidak akan menyalahkan cahaya atas kegelapan yang diciptakan predator.</p>
+                <div class="report-mechanism">
+                    <h3>MEKANISME PELAPORAN ALTERNATIF</h3>
+                    <ul class="mechanism-list">
+                        <li>Jalur anonim melalui <strong>Terminal Suara Rakyat</strong> di situs PARI</li>
+                        <li>Kontak langsung melalui selebaran fisik yang terdistribusi di titik-titik aman fakultas</li>
+                        <li>Pendampingan oleh sel PARI di setiap jurusan (informasi kontak tersedia melalui jaringan terpercaya)</li>
+                        <li>Ruang konsultasi rahasia yang dapat diakses melalui koordinator angkatan</li>
+                    </ul>
                 </div>
+
+                <p style="margin-top: 40px; font-style: italic; color: #ff8888;">Kami tidak akan berhenti pada deklarasi ini. PARI bergerak dalam bayang untuk memastikan setiap sudut kampus—dari ruang kelas hingga pojok diskusi—menjadi ruang yang berdaulat bagi pemikiran dan aman bagi raga. Kebenaran tidak akan bisa dikubur bersama rasa takut.</p>
             </div>
 
-            <section class="text-block">
-                <h3>Visi Kedaulatan Tubuh</h3>
-                <p>Perlawanan ini tidak akan berakhir pada selembar kertas. PARI berkomitmen untuk melakukan pemetaan terhadap titik-titik buta di kampus yang sering menjadi lokasi opresi. Kami bergerak dalam bayang untuk memastikan setiap sudut kampus—dari ruang kelas hingga pojok diskusi—menjadi ruang yang berdaulat bagi pemikiran dan aman bagi raga.</p>
-                <p style="margin-top: 20px; font-weight: bold;">Kebenaran tidak akan bisa dikubur bersama rasa takut.</p>
-            </section>
-
-            <footer class="footer-metadata">
+            <div class="doc-footer">
                 <div>
-                    <p>TANGGAL PENERBITAN: 11 MEI 2026</p>
-                    <p>LOKASI: BANDAR ACEH DARUSSALAM, BANDA ACEH</p>
+                    <p><strong>PENERBIT:</strong> DEWAN ETIKA DAN KEAMANAN PARI</p>
+                    <p><strong>LOKASI:</strong> BANDAR ACEH DARUSSALAM, BANDA ACEH</p>
                 </div>
                 <div style="text-align: right;">
-                    <p>ARSIP PERGERAKAN AR-RANIRY (PARI) © 2026</p>
-                    <p>DEWAN ETIKA DAN KEAMANAN</p>
+                    <p><strong>DISTRIBUSI:</strong> PUBLIK - SEBARKAN UNTUK KESADARAN KOLEKTIF</p>
+                    <p class="stamp">⚡ DEKLARASI AKTIF PER 11 MEI 2026 ⚡</p>
                 </div>
-            </footer>
+            </div>
         </main>
 
-        <div class="secure-box" style="border-color: #4a0000; color: #ff0000; margin-bottom: 100px;">
-            "DI MANA ADA OPRESI, DI SITU ADA PERLAWANAN."
+        <div class="secure-box" style="border-color: #ff0000; color: #ff4444; margin: 40px auto 80px; max-width: 900px;">
+            "RUANG AMAN BUKANLAH HADIAH, TETAPI HAK DASAR YANG WAJIB DIPERJUANGKAN."
         </div>
     </div>
 
