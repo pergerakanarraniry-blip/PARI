@@ -4,324 +4,551 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIBLIOTEKA | Perpustakaan Bayangan PARI</title>
+    <link rel="icon" type="image/png" href="LOGO_PARI.png">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
-        /* Estetika Perpustakaan Bayangan */
-        .biblioteka-container {
-            background-color: #080808;
-            border: 1px solid #1a1510;
-            padding: 60px 50px;
-            margin: 50px auto;
-            max-width: 900px;
-            box-shadow: 0 0 60px rgba(212, 175, 55, 0.05);
-            position: relative;
+        /* ========== Gaya Khusus Perpustakaan Bayangan ========== */
+        :root {
+            --primary: #dd3333;
+            --primary-dark: #bb2222;
+            --gold: #d4af37;
+            --gold-dark: #b8960c;
+            --dark: #1a1a1a;
+            --gray: #555;
+            --gray-light: #888;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --border: #e0e0e0;
         }
 
-        .biblioteka-container::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 5px;
-            background: linear-gradient(90deg, #d4af37, transparent);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            background: var(--light-gray);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header Navigasi */
+        .site-header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-area img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark);
+        }
+
+        .back-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.2s;
+        }
+
+        .back-link:hover {
+            gap: 12px;
+            color: var(--primary-dark);
+        }
+
+        /* Kontainer Utama */
+        .biblioteka-wrapper {
+            margin: 40px auto;
+        }
+
+        .biblioteka-card {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .biblioteka-header {
+            background: linear-gradient(135deg, var(--dark) 0%, #2a2a2a 100%);
+            padding: 40px 48px;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
         }
 
         .ref-code {
-            font-family: 'Courier New', Courier, monospace;
-            color: #d4af37;
+            font-family: 'Courier New', monospace;
+            color: var(--gold);
             letter-spacing: 3px;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            display: block;
+            font-size: 0.75rem;
+            margin-bottom: 16px;
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
         }
 
-        h1.gold-title {
-            font-family: 'Times New Roman', serif;
-            font-size: 3rem;
+        .gold-title {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
             font-style: italic;
-            color: #fff;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: var(--white);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .biblioteka-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Isi Konten */
+        .biblioteka-content {
+            padding: 48px;
         }
 
         .intro-text {
-            font-size: 1.2rem;
-            color: #aaa;
+            font-size: 1.05rem;
+            color: var(--gray);
             line-height: 1.8;
-            margin-bottom: 50px;
-            border-bottom: 1px solid #222;
+            margin-bottom: 48px;
             padding-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+            font-style: italic;
         }
 
-        /* Daftar Buku */
+        /* Grid Buku */
+        .book-section {
+            margin-bottom: 48px;
+        }
+
+        .section-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gold);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 8px;
+            margin-bottom: 24px;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
         .book-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
         }
 
         .book-entry {
-            padding-left: 30px;
-            border-left: 2px solid #d4af37;
-            transition: 0.3s;
+            padding: 16px 0 16px 24px;
+            border-left: 3px solid var(--gold);
+            transition: all 0.3s ease;
+            background: var(--light-gray);
+            border-radius: 0 12px 12px 0;
         }
 
         .book-entry:hover {
-            border-left: 2px solid #fff;
-            transform: translateX(10px);
+            border-left-color: var(--primary);
+            transform: translateX(8px);
+            background: #fffaf5;
         }
 
         .author {
-            font-family: Arial, sans-serif;
-            font-size: 0.8rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #666;
-            margin-bottom: 5px;
+            color: var(--gray-light);
+            margin-bottom: 4px;
         }
 
         .book-title {
-            font-size: 1.6rem;
-            color: #fff;
-            margin-bottom: 10px;
-            font-weight: normal;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 8px;
         }
 
-        /* Seksi Tautan Eksternal */
+        .book-entry p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* Tautan Eksternal */
         .external-links {
-            background: rgba(212, 175, 55, 0.03);
-            border: 1px solid #222;
-            padding: 40px;
-            margin-top: 80px;
+            background: var(--light-gray);
+            border-radius: 16px;
+            padding: 32px;
+            margin-top: 40px;
+            border: 1px solid var(--border);
         }
 
         .external-links h3 {
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
-            letter-spacing: 3px;
+            font-weight: 700;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 25px;
-            color: #d4af37;
+            margin-bottom: 20px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .external-links h3::before {
+            content: "📚";
+            font-size: 1.2rem;
         }
 
         .link-item {
-            display: block;
-            color: #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--dark);
             text-decoration: none;
-            padding: 15px 0;
-            border-bottom: 1px solid #1a1a1a;
-            font-family: Arial, sans-serif;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
             font-size: 0.9rem;
-            transition: 0.3s;
+            font-weight: 500;
+            transition: all 0.2s;
         }
 
         .link-item:hover {
-            color: #d4af37;
-            padding-left: 15px;
+            color: var(--primary);
+            padding-left: 10px;
         }
 
         .link-item span {
-            float: right;
-            color: #444;
+            color: var(--gray-light);
             font-size: 0.7rem;
+            font-weight: normal;
         }
 
-        .back-btn {
-            display: inline-block;
-            margin: 40px 0;
-            color: #666;
-            text-decoration: none;
-            font-family: Arial;
-            font-size: 0.8rem;
-            transition: 0.3s;
+        /* Quote Box */
+        .quote-box-gold {
+            margin-top: 48px;
+            padding: 24px 32px;
+            background: linear-gradient(135deg, #fffaf5, #fff5e6);
+            border-left: 4px solid var(--gold);
+            border-radius: 12px;
+            text-align: center;
         }
 
-        .back-btn:hover { color: #fff; }
+        .quote-box-gold p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--dark);
+        }
 
+        /* Footer Umum */
+        .site-footer {
+            background: var(--dark);
+            color: #aaa;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            font-size: 0.75rem;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .biblioteka-container { padding: 30px 20px; }
-            h1.gold-title { font-size: 2rem; }
+            .biblioteka-header {
+                padding: 32px 24px;
+            }
+            
+            .gold-title {
+                font-size: 1.8rem;
+            }
+            
+            .biblioteka-content {
+                padding: 32px 24px;
+            }
+            
+            .book-entry {
+                padding: 12px 0 12px 20px;
+            }
+            
+            .book-title {
+                font-size: 1rem;
+            }
+            
+            .external-links {
+                padding: 24px 20px;
+            }
+            
+            .link-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .link-item span {
+                align-self: flex-start;
+            }
+            
+            .site-header .container {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
+<!-- Header Navigasi -->
+<header class="site-header">
     <div class="container">
-        <a href="index.html" class="back-btn">← KEMBALI KE TERMINAL ARSIP</a>
-
-        <main class="biblioteka-container">
-            <span class="ref-code">FILE REF: BIB/2026/001</span>
-            <h1 class="gold-title">Perpustakaan Bayangan</h1>
-
-            <p class="intro-text">
-                Buku bukan sekadar kertas dan tinta. Ia adalah senjata yang tidak berbunyi. Di bawah ini adalah kurasi awal bagi mereka yang berani mempertanyakan realitas di Ar-Raniry. Karena dalam kegelapan birokrasi, nalar yang terasah adalah lentera satu-satunya.
-            </p>
-
-           <div class="book-grid">
-    <h3 style="color: #d4af37; border-bottom: 1px solid #1a1510; padding-bottom: 10px; margin-top: 20px;">I. Fundamental Perlawanan & Pedagogi</h3>
-    
-    <div class="book-entry">
-        <p class="author">Paulo Freire</p>
-        <h2 class="book-title">Pendidikan Kaum Tertindas</h2>
-        <p>Analisis tentang bagaimana pendidikan formal seringkali menjadi alat penjinakan massa.</p>
+        <div class="logo-area">
+            <img src="LOGO_PARI.png" alt="Logo PARI">
+            <span class="logo-text">Pergerakan Ar-Raniry</span>
+        </div>
+        <a href="index.html" class="back-link">← KEMBALI KE TERMINAL ARSIP</a>
     </div>
+</header>
 
-    <div class="book-entry">
-        <p class="author">Antonio Gramsci</p>
-        <h2 class="book-title">Catatan-Catatan dari Penjara</h2>
-        <p>Membahas hegemoni budaya dan peran intelektual organik dalam masyarakat.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">Franz Fanon</p>
-        <h2 class="book-title">The Wretched of the Earth</h2>
-        <p>Psikologi kolonialisme dan perlunya dekolonisasi mental secara total.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">Saul Alinsky</p>
-        <h2 class="book-title">Rules for Radicals</h2>
-        <p>Taktik pengorganisasian komunitas untuk merebut kekuasaan dari bawah.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">Ivan Illich</p>
-        <h2 class="book-title">Deschooling Society</h2>
-        <p>Gugatan terhadap institusi sekolah yang dianggap membelenggu kreativitas manusia.</p>
-    </div>
-
-    <h3 style="color: #d4af37; border-bottom: 1px solid #1a1510; padding-bottom: 10px; margin-top: 40px;">II. Ekonomi Politik & Kritik Sistem</h3>
-
-    <div class="book-entry">
-        <p class="author">Karl Marx</p>
-        <h2 class="book-title">Das Kapital (Volume I)</h2>
-        <p>Analisis mendalam mengenai proses produksi kapitalis dan akumulasi nilai lebih.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">Friedrich Engels</p>
-        <h2 class="book-title">Asal-usul Keluarga, Properti Pribadi, dan Negara</h2>
-        <p>Menjelaskan kaitan antara kepemilikan pribadi dengan penindasan perempuan.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">Rosa Luxemburg</p>
-        <h2 class="book-title">Reform or Revolution</h2>
-        <p>Argumen tajam mengapa reformasi kecil tidak akan pernah cukup tanpa perubahan sistemik.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">V.I. Lenin</p>
-        <h2 class="book-title">Negara dan Revolusi</h2>
-        <p>Teori mengenai peran negara sebagai alat penindasan kelas.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">David Harvey</p>
-        <h2 class="book-title">A Brief History of Neoliberalism</h2>
-        <p>Memahami bagaimana kebijakan pasar bebas menghancurkan kesejahteraan sosial.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">Guy Debord</p>
-        <h2 class="book-title">The Society of the Spectacle</h2>
-        <p>Kritik terhadap masyarakat modern yang dikendalikan oleh citra dan konsumsi.</p>
-    </div>
-
-    <h3 style="color: #d4af37; border-bottom: 1px solid #1a1510; padding-bottom: 10px; margin-top: 40px;">III. Filsafat Materialisme & Sosial</h3>
-
-    <div class="book-entry">
-        <p class="author">Herbert Marcuse</p>
-        <h2 class="book-title">One-Dimensional Man</h2>
-        <p>Kritik terhadap masyarakat industri maju yang melenyapkan nalar kritis manusia.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">Michel Foucault</p>
-        <h2 class="book-title">Discipline and Punish</h2>
-        <p>Analisis tentang bagaimana kekuasaan bekerja melalui pengawasan dan disiplin tubuh.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">Louis Althusser</p>
-        <h2 class="book-title">Ideology and Ideological State Apparatuses</h2>
-        <p>Bagaimana negara menggunakan sekolah dan agama sebagai alat penyebar ideologi.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">Theodor Adorno</p>
-        <h2 class="book-title">Dialectic of Enlightenment</h2>
-        <p>Membahas sisi gelap rasionalitas modern dan industri budaya.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">Pyotr Kropotkin</p>
-        <h2 class="book-title">The Conquest of Bread</h2>
-        <p>Teori tentang kerjasama sukarela (mutual aid) sebagai alternatif bagi kompetisi kapitalis.</p>
-    </div>
-
-    <h3 style="color: #d4af37; border-bottom: 1px solid #1a1510; padding-bottom: 10px; margin-top: 40px;">IV. Sejarah Pergerakan & Konteks Lokal</h3>
-
-    <div class="book-entry">
-        <p class="author">Tan Malaka</p>
-        <h2 class="book-title">Madilog (Materialisme, Dialektika, Logika)</h2>
-        <p>Mahakarya pemikiran orisinal Indonesia untuk membangun nalar merdeka.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">Tan Malaka</p>
-        <h2 class="book-title">Gerpolek (Gerilya Politik Ekonomi)</h2>
-        <p>Panduan perjuangan kemerdekaan total melawan kolonialisme dan imperialisme.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">Pramoedya Ananta Toer</p>
-        <h2 class="book-title">Tetralogi Buru</h2>
-        <p>Roman sejarah yang membedah lahirnya kesadaran nasional di nusantara.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">Benedict Anderson</p>
-        <h2 class="book-title">Imagined Communities</h2>
-        <p>Asal-usul dan penyebaran nasionalisme sebagai sebuah konstruksi sosial.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">Sutan Sjahrir</p>
-        <h2 class="book-title">Perjuangan Kita</h2>
-        <p>Risalah politik mengenai arah revolusi Indonesia yang demokratis.</p>
-    </div>
-
-    <div class="book-entry">
-        <p class="author">Soe Hok Gie</p>
-        <h2 class="book-title">Catatan Seorang Demonstran</h2>
-        <p>Refleksi kejujuran seorang intelektual muda dalam melawan tirani kekuasaan.</p>
-    </div>
-</div>
-
-            <section class="external-links">
-                <h3>Akses Jalur Luar (Digital)</h3>
-                <p style="font-size: 0.8rem; color: #666; margin-bottom: 20px;">
-                    Jalur komunikasi terenkripsi menuju repositori literatur progresif internasional:
-                </p>
-                
-                <a href="https://revolusioner.org/" target="_blank" class="link-item">
-                    REVOLUSIONER.ORG <span>[REPOSITORI LOKAL]</span>
-                </a>
-                
-                <a href="https://www.arahjuang.com/" target="_blank" class="link-item">
-                    ARAH JUANG <span>[PERSPEKTIF MASSA]</span>
-                </a>
-                
-                <a href="https://www.marxists.org/indonesia/" target="_blank" class="link-item">
-                    MARXISTS INTERNET ARCHIVE (INDONESIA) <span>[ARSIP GLOBAL]</span>
-                </a>
-            </section>
-
-            <div class="secure-box" style="margin-top: 60px; border-color: #d4af37; color: #d4af37;">
-                "JANGAN BIARKAN MEREKA MENGATUR APA YANG BOLEH KAU PIKIRKAN."
+<main>
+    <div class="container biblioteka-wrapper">
+        <div class="biblioteka-card">
+            
+            <!-- Header -->
+            <div class="biblioteka-header">
+                <div class="ref-code">FILE REF: BIB/2026/001</div>
+                <h1 class="gold-title">Perpustakaan Bayangan</h1>
+                <p>Kurasi literatur perlawanan untuk menghancurkan nalar budak dan memicu api pemberontakan intelektual.</p>
             </div>
-        </main>
+            
+            <!-- Isi -->
+            <div class="biblioteka-content">
+                
+                <div class="intro-text">
+                    Buku bukan sekadar kertas dan tinta. Ia adalah senjata yang tidak berbunyi. 
+                    Di bawah ini adalah kurasi awal bagi mereka yang berani mempertanyakan realitas di Ar-Raniry. 
+                    Karena dalam kegelapan birokrasi, nalar yang terasah adalah lentera satu-satunya.
+                </div>
+
+                <!-- I. Fundamental Perlawanan -->
+                <div class="book-section">
+                    <h3 class="section-heading">I. Fundamental Perlawanan & Pedagogi</h3>
+                    <div class="book-grid">
+                        <div class="book-entry">
+                            <div class="author">Paulo Freire</div>
+                            <div class="book-title">Pendidikan Kaum Tertindas</div>
+                            <p>Analisis tentang bagaimana pendidikan formal seringkali menjadi alat penjinakan massa.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Antonio Gramsci</div>
+                            <div class="book-title">Catatan-Catatan dari Penjara</div>
+                            <p>Membahas hegemoni budaya dan peran intelektual organik dalam masyarakat.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Franz Fanon</div>
+                            <div class="book-title">The Wretched of the Earth</div>
+                            <p>Psikologi kolonialisme dan perlunya dekolonisasi mental secara total.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Saul Alinsky</div>
+                            <div class="book-title">Rules for Radicals</div>
+                            <p>Taktik pengorganisasian komunitas untuk merebut kekuasaan dari bawah.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Ivan Illich</div>
+                            <div class="book-title">Deschooling Society</div>
+                            <p>Gugatan terhadap institusi sekolah yang dianggap membelenggu kreativitas manusia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- II. Ekonomi Politik -->
+                <div class="book-section">
+                    <h3 class="section-heading">II. Ekonomi Politik & Kritik Sistem</h3>
+                    <div class="book-grid">
+                        <div class="book-entry">
+                            <div class="author">Karl Marx</div>
+                            <div class="book-title">Das Kapital (Volume I)</div>
+                            <p>Analisis mendalam mengenai proses produksi kapitalis dan akumulasi nilai lebih.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Friedrich Engels</div>
+                            <div class="book-title">Asal-usul Keluarga, Properti Pribadi, dan Negara</div>
+                            <p>Menjelaskan kaitan antara kepemilikan pribadi dengan penindasan perempuan.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Rosa Luxemburg</div>
+                            <div class="book-title">Reform or Revolution</div>
+                            <p>Argumen tajam mengapa reformasi kecil tidak akan pernah cukup tanpa perubahan sistemik.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">V.I. Lenin</div>
+                            <div class="book-title">Negara dan Revolusi</div>
+                            <p>Teori mengenai peran negara sebagai alat penindasan kelas.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">David Harvey</div>
+                            <div class="book-title">A Brief History of Neoliberalism</div>
+                            <p>Memahami bagaimana kebijakan pasar bebas menghancurkan kesejahteraan sosial.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Guy Debord</div>
+                            <div class="book-title">The Society of the Spectacle</div>
+                            <p>Kritik terhadap masyarakat modern yang dikendalikan oleh citra dan konsumsi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- III. Filsafat Materialisme -->
+                <div class="book-section">
+                    <h3 class="section-heading">III. Filsafat Materialisme & Sosial</h3>
+                    <div class="book-grid">
+                        <div class="book-entry">
+                            <div class="author">Herbert Marcuse</div>
+                            <div class="book-title">One-Dimensional Man</div>
+                            <p>Kritik terhadap masyarakat industri maju yang melenyapkan nalar kritis manusia.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Michel Foucault</div>
+                            <div class="book-title">Discipline and Punish</div>
+                            <p>Analisis tentang bagaimana kekuasaan bekerja melalui pengawasan dan disiplin tubuh.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Louis Althusser</div>
+                            <div class="book-title">Ideology and Ideological State Apparatuses</div>
+                            <p>Bagaimana negara menggunakan sekolah dan agama sebagai alat penyebar ideologi.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Theodor Adorno</div>
+                            <div class="book-title">Dialectic of Enlightenment</div>
+                            <p>Membahas sisi gelap rasionalitas modern dan industri budaya.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Pyotr Kropotkin</div>
+                            <div class="book-title">The Conquest of Bread</div>
+                            <p>Teori tentang kerjasama sukarela (mutual aid) sebagai alternatif bagi kompetisi kapitalis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IV. Sejarah Pergerakan Lokal -->
+                <div class="book-section">
+                    <h3 class="section-heading">IV. Sejarah Pergerakan & Konteks Lokal</h3>
+                    <div class="book-grid">
+                        <div class="book-entry">
+                            <div class="author">Tan Malaka</div>
+                            <div class="book-title">Madilog (Materialisme, Dialektika, Logika)</div>
+                            <p>Mahakarya pemikiran orisinal Indonesia untuk membangun nalar merdeka.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Tan Malaka</div>
+                            <div class="book-title">Gerpolek (Gerilya Politik Ekonomi)</div>
+                            <p>Panduan perjuangan kemerdekaan total melawan kolonialisme dan imperialisme.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Pramoedya Ananta Toer</div>
+                            <div class="book-title">Tetralogi Buru</div>
+                            <p>Roman sejarah yang membedah lahirnya kesadaran nasional di nusantara.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Benedict Anderson</div>
+                            <div class="book-title">Imagined Communities</div>
+                            <p>Asal-usul dan penyebaran nasionalisme sebagai sebuah konstruksi sosial.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Sutan Sjahrir</div>
+                            <div class="book-title">Perjuangan Kita</div>
+                            <p>Risalah politik mengenai arah revolusi Indonesia yang demokratis.</p>
+                        </div>
+                        <div class="book-entry">
+                            <div class="author">Soe Hok Gie</div>
+                            <div class="book-title">Catatan Seorang Demonstran</div>
+                            <p>Refleksi kejujuran seorang intelektual muda dalam melawan tirani kekuasaan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tautan Eksternal -->
+                <div class="external-links">
+                    <h3>Akses Jalur Luar (Digital)</h3>
+                    <p style="font-size: 0.8rem; color: var(--gray); margin-bottom: 20px;">
+                        Jalur komunikasi terenkripsi menuju repositori literatur progresif internasional:
+                    </p>
+                    
+                    <a href="https://revolusioner.org/" target="_blank" class="link-item">
+                        REVOLUSIONER.ORG 
+                        <span>[REPOSITORI LOKAL]</span>
+                    </a>
+                    
+                    <a href="https://www.arahjuang.com/" target="_blank" class="link-item">
+                        ARAH JUANG 
+                        <span>[PERSPEKTIF MASSA]</span>
+                    </a>
+                    
+                    <a href="https://www.marxists.org/indonesia/" target="_blank" class="link-item">
+                        MARXISTS INTERNET ARCHIVE (INDONESIA) 
+                        <span>[ARSIP GLOBAL]</span>
+                    </a>
+                </div>
+
+                <!-- Quote -->
+                <div class="quote-box-gold">
+                    <p>"Jangan biarkan mereka mengatur apa yang boleh kau pikirkan."</p>
+                </div>
+
+            </div>
+        </div>
     </div>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="container">
+        <p>ARSIP RESMI PERGERAKAN AR-RANIRY (PARI) © 2026</p>
+        <p style="margin-top: 6px; font-size: 0.7rem; opacity: 0.6;">BACA ATAU TERTINDAS</p>
+    </div>
+</footer>
 
 </body>
 </html>
