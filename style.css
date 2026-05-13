@@ -216,10 +216,67 @@ h2 {
     margin-top: 20px;
 }
 
+/* ========== LOG AKTIVITAS DENGAN SCROLL ========== */
 .log-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 16px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+/* Scrollbar styling */
+.log-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.log-list::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 10px;
+}
+
+.log-list::-webkit-scrollbar-thumb {
+    background: #dd3333;
+    border-radius: 10px;
+}
+
+.log-list::-webkit-scrollbar-thumb:hover {
+    background: #bb2222;
+}
+
+/* Item log */
+.log-item {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #dd3333;
+    transition: transform 0.2s;
+}
+
+.log-item:hover {
+    transform: translateX(5px);
+}
+
+.date {
+    font-size: 0.8rem;
+    color: #dd3333;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.log-text {
+    color: #444;
+    line-height: 1.5;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .log-list {
+        max-height: 300px;
+    }
+}
 }
 
 .log-item {
