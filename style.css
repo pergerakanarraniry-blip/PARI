@@ -41,7 +41,7 @@ nav {
     gap: 10px;
 }
 
-/* INI YANG PENTING - UKURAN LOGO */
+/* UKURAN LOGO */
 .main-logo {
     height: 45px !important;
     width: auto !important;
@@ -139,6 +139,10 @@ nav {
     margin-top: 15px;
 }
 
+.read-more:hover {
+    text-decoration: underline;
+}
+
 .slider-btn {
     position: absolute;
     top: 50%;
@@ -226,7 +230,7 @@ h2 {
     padding-right: 8px;
 }
 
-/* Scrollbar styling */
+/* Scrollbar styling - Chrome, Safari, Edge */
 .log-list::-webkit-scrollbar {
     width: 6px;
 }
@@ -237,20 +241,25 @@ h2 {
 }
 
 .log-list::-webkit-scrollbar-thumb {
-    background: #dd3333;
+    background: #ff4444;
     border-radius: 10px;
 }
 
 .log-list::-webkit-scrollbar-thumb:hover {
-    background: #bb2222;
+    background: #cc0000;
 }
 
-/* Item log */
+/* Firefox scrollbar */
+.log-list {
+    scrollbar-width: thin;
+    scrollbar-color: #ff4444 #e0e0e0;
+}
+
 .log-item {
     background: #f9f9f9;
     padding: 20px;
     border-radius: 12px;
-    border-left: 4px solid #dd3333;
+    border-left: 4px solid #ff4444;
     transition: transform 0.2s;
 }
 
@@ -260,7 +269,7 @@ h2 {
 
 .date {
     font-size: 0.8rem;
-    color: #dd3333;
+    color: #ff4444;
     font-weight: 600;
     margin-bottom: 8px;
     display: block;
@@ -271,28 +280,7 @@ h2 {
     line-height: 1.5;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .log-list {
-        max-height: 300px;
-    }
-}
-}
-
-.log-item {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    border-left: 4px solid #ff4444;
-}
-
-.date {
-    font-weight: bold;
-    color: #ff4444;
-    display: block;
-    margin-bottom: 8px;
-}
-
+/* ========== KARYA GRID ========== */
 .karya-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -318,10 +306,18 @@ h2 {
     color: #ff4444;
     font-size: 0.7rem;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .karya-card h3 {
     margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.karya-card p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
 }
 
 .btn-link {
@@ -332,6 +328,11 @@ h2 {
     margin-top: 15px;
 }
 
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+/* ========== TRANSMISSION BANNER ========== */
 .transmission-banner {
     background: #1a1a1a;
     color: white;
@@ -339,6 +340,11 @@ h2 {
     text-align: center;
     border-radius: 10px;
     margin-bottom: 40px;
+}
+
+.transmission-banner h3 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
 }
 
 .btn-pari {
@@ -349,12 +355,15 @@ h2 {
     border-radius: 30px;
     display: inline-block;
     margin-top: 15px;
+    font-weight: bold;
+    transition: background 0.2s;
 }
 
 .btn-pari:hover {
     background: #cc0000;
 }
 
+/* ========== INSTRUCTION & PROTOCOL ========== */
 .instruction-box {
     background: #f9f9f9;
     padding: 30px;
@@ -368,6 +377,14 @@ h2 {
     color: #ff4444;
     display: block;
     margin-bottom: 10px;
+}
+
+.protocol {
+    margin: 20px 0;
+}
+
+.protocol h3 {
+    margin-bottom: 15px;
 }
 
 .protocol ul {
@@ -393,13 +410,16 @@ h2 {
     font-style: italic;
     color: #888;
     margin-top: 40px;
+    font-size: 1.1rem;
 }
 
+/* ========== FOOTER ========== */
 footer {
     background: #1a1a1a;
     color: #aaa;
     text-align: center;
     padding: 30px 0;
+    font-size: 0.8rem;
 }
 
 /* ========== RESPONSIVE ========== */
@@ -412,6 +432,7 @@ footer {
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 15px;
     }
     
     .slide h1 {
@@ -432,5 +453,22 @@ footer {
     
     .main-logo {
         height: 35px !important;
+    }
+    
+    /* Log lebih pendek di mobile */
+    .log-list {
+        max-height: 280px;
+    }
+    
+    .transmission-banner {
+        padding: 25px;
+    }
+    
+    .instruction-box {
+        padding: 20px;
+    }
+    
+    .motto {
+        font-size: 0.9rem;
     }
 }
