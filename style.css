@@ -1,3 +1,8 @@
+/* ============================================
+   PARI (Pergerakan Ar-Raniry) - Style Sheet
+   Versi Final | 13 MEI 2026
+   ============================================ */
+
 /* --- Global Styles --- */
 * {
     margin: 0;
@@ -34,6 +39,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .logo-container {
@@ -59,6 +66,7 @@ nav {
     display: flex;
     list-style: none;
     gap: 25px;
+    flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -73,6 +81,13 @@ nav {
 
 .nav-links a:hover {
     opacity: 0.6;
+}
+
+/* Class khusus untuk tautan TULIS PESAN */
+.nav-highlight {
+    color: #ff0000 !important;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
 /* --- Hero Section --- */
@@ -101,6 +116,7 @@ nav {
 /* --- Content Sections --- */
 .content {
     padding: 100px 0;
+    border-bottom: 1px solid #1a1a1a;
 }
 
 h2 {
@@ -130,7 +146,65 @@ h2 {
     background: transparent;
 }
 
+/* --- Transmission Banner (Dinding Subversi) --- */
+.transmission-banner {
+    border: 1px solid #4a0000;
+    padding: 25px;
+    background: rgba(74, 0, 0, 0.08);
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+}
+
+.secure-channel-tag {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 0.6rem;
+    color: #ff0000;
+    letter-spacing: 2px;
+}
+
+.banner-title {
+    color: #fff;
+    margin-bottom: 10px;
+    font-style: italic;
+    font-size: 1.3rem;
+}
+
+.banner-desc {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.btn-pari {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #4a0000;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    border: 1px solid #ff0000;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-pari:hover {
+    background: #ff0000;
+    color: #000;
+    letter-spacing: 3px;
+}
+
 /* --- Log Aktivitas --- */
+.log-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .log-item {
     padding: 25px 0;
     border-bottom: 1px solid #222;
@@ -145,11 +219,19 @@ h2 {
     background: rgba(74, 0, 0, 0.1);
 }
 
+.log-item:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
 .date {
     font-family: Arial, sans-serif;
     font-size: 0.8rem;
     min-width: 130px;
     color: #666;
+}
+
+.log-text p {
+    margin: 0;
 }
 
 /* --- Arsitektur Kartu Arsip Interaktif --- */
@@ -158,7 +240,7 @@ h2 {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     margin-top: 50px;
-    perspective: 1000px; /* Memberikan efek 3D saat kartu berinteraksi */
+    perspective: 1000px;
 }
 
 .karya-card {
@@ -168,10 +250,9 @@ h2 {
     padding: 50px 35px;
     display: flex;
     flex-direction: column;
-    text-decoration: none;
-    cursor: pointer;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     overflow: hidden;
+    cursor: pointer;
 }
 
 /* Efek Overlay Glitch Halus saat Hover */
@@ -248,7 +329,6 @@ h2 {
     font-weight: normal;
     color: #fff;
     margin-bottom: 20px;
-    text-decoration: none;
     line-height: 1.2;
     transition: transform 0.3s;
 }
@@ -286,22 +366,24 @@ h2 {
     letter-spacing: 2px;
     transition: all 0.4s;
     background: transparent;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.karya-card:hover .btn-link {
+.btn-link:hover {
     background: #fff;
     color: #000;
     border-color: #fff;
-    letter-spacing: 4px; /* Memberikan efek ekspansi saat hover */
+    letter-spacing: 4px;
 }
 
 /* Highlight Khusus Dokumen Merah (Urgensi) */
 .karya-card.highlight-urgent {
-    border-left: 4px solid #4a0000;
+    border-left: 5px solid #4a0000;
 }
 
 .karya-card.highlight-urgent:hover {
-    border-left: 4px solid #ff0000;
+    border-left: 5px solid #ff0000;
     box-shadow: -15px 25px 50px rgba(255, 0, 0, 0.05);
 }
 
@@ -315,30 +397,44 @@ h2 {
     color: #fff;
 }
 
-/* Penyesuaian Mobile */
-@media (max-width: 768px) {
-    .karya-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-    .karya-card {
-        padding: 40px 25px;
-    }
-}
-/* Gaya Khusus Dokumen Urgen */
-.karya-card.highlight-urgent {
-    border-left: 5px solid #4a0000;
+/* Gaya Khusus: Protokol Nalar Otonom (Efek Jaringan) */
+.karya-card.autonomous-net {
+    border: 1px dashed #444;
 }
 
-.karya-card.highlight-urgent:hover {
-    border-left: 5px solid #ff0000;
-    box-shadow: -10px 10px 40px rgba(255, 0, 0, 0.05);
+.karya-card.autonomous-net::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(#222 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: 0.3;
+    z-index: 0;
 }
 
-.karya-card.highlight-urgent:hover .btn-link {
-    background: #ff0000;
-    border-color: #ff0000;
-    color: #ffffff;
+.karya-card.autonomous-net:hover {
+    border: 1px dashed #fff;
+}
+
+.karya-card.autonomous-net::after {
+    content: "NETWORK";
+}
+
+/* Gaya Khusus: Perpustakaan Bayangan (Efek Klasik/Sepia) */
+.karya-card.biblioteka-style:hover {
+    background: linear-gradient(to bottom, #0a0a0a, #1a1510);
+    border-color: #d4af37;
+}
+
+.karya-card.biblioteka-style:hover h3 {
+    color: #d4af37;
+}
+
+.karya-card.biblioteka-style::after {
+    content: "READ";
 }
 
 /* --- Kontak & Footer --- */
@@ -357,10 +453,18 @@ h2 {
     display: block;
 }
 
+.protocol {
+    margin: 30px 0;
+}
+
 .protocol ul {
     list-style-type: square;
     padding-left: 20px;
     margin-top: 20px;
+}
+
+.protocol li {
+    margin-bottom: 10px;
 }
 
 .motto {
@@ -381,50 +485,150 @@ footer {
     letter-spacing: 2px;
 }
 
-/* --- Mobile View --- */
+.footer-note {
+    margin-top: 5px;
+    opacity: 0.5;
+    font-size: 0.7rem;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet & Mobile Landscape */
 @media (max-width: 768px) {
-    .container { width: 90%; }
-    .karya-grid { grid-template-columns: 1fr; }
-    .log-item { flex-direction: column; gap: 10px; }
-    .hero h1 { font-size: 2rem; }
-    nav { flex-direction: column; gap: 25px; }
-    .logo-text { font-size: 0.7rem; text-align: center; }
-    .secure-box { width: 100%; letter-spacing: 2px; }
-}
-/* Gaya Khusus: Protokol Nalar Otonom (Efek Jaringan) */
-.karya-card.autonomous-net {
-    border: 1px dashed #444;
+    .container {
+        width: 90%;
+    }
+    
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .nav-links {
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .hero {
+        padding: 80px 0;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        letter-spacing: 3px;
+    }
+    
+    .content {
+        padding: 60px 0;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+        letter-spacing: 3px;
+        margin-bottom: 40px;
+    }
+    
+    .text-block {
+        font-size: 1rem;
+    }
+    
+    .karya-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .karya-card {
+        padding: 40px 25px;
+    }
+    
+    .karya-card h3 {
+        font-size: 1.4rem;
+    }
+    
+    .log-item {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .date {
+        min-width: auto;
+    }
+    
+    .secure-box {
+        width: 100%;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+    }
+    
+    .instruction-box {
+        padding: 25px;
+    }
+    
+    .motto {
+        font-size: 1.1rem;
+        margin-top: 50px;
+    }
+    
+    .logo-text {
+        font-size: 0.7rem;
+        text-align: center;
+    }
+    
+    .main-logo {
+        height: 35px;
+    }
+    
+    .transmission-banner {
+        padding: 20px;
+    }
+    
+    .secure-channel-tag {
+        position: relative;
+        text-align: right;
+        margin-bottom: 10px;
+    }
+    
+    .btn-pari {
+        padding: 10px 20px;
+        font-size: 0.7rem;
+    }
 }
 
-.karya-card.autonomous-net::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: radial-gradient(#222 1px, transparent 1px);
-    background-size: 15px 15px;
-    opacity: 0.3;
-    z-index: 0;
-}
-
-.karya-card.autonomous-net:hover {
-    border: 1px dashed #fff;
-}
-
-.karya-card.autonomous-net::after {
-    content: "NETWORK";
-}
-
-/* Gaya Khusus: Perpustakaan Bayangan (Efek Klasik/Sepia) */
-.karya-card.biblioteka-style:hover {
-    background: linear-gradient(to bottom, #0a0a0a, #1a1510);
-    border-color: #d4af37; /* Warna emas redup */
-}
-
-.karya-card.biblioteka-style:hover h3 {
-    color: #d4af37;
-    text-decoration-color: #d4af37;
-}
-
-.karya-card.biblioteka-style::after {
-    content: "READ";
+/* Mobile Small */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+    }
+    
+    .karya-card {
+        padding: 30px 20px;
+    }
+    
+    .btn-link {
+        padding: 8px 20px;
+        font-size: 0.6rem;
+    }
+    
+    .secure-box {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .motto {
+        font-size: 0.9rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.7rem;
+    }
 }
