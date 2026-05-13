@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terminal Suara Rakyat - PARI</title>
+    <link rel="icon" type="image/png" href="LOGO_PARI.png">
     <link rel="stylesheet" href="style.css">
     <style>
         .form-container {
@@ -71,10 +72,14 @@
                 <p>⚠️ Laporan birokrasi, gagasan perlawanan, atau informasi penting lainnya akan dikirimkan secara anonim melalui saluran terenkripsi.</p>
             </div>
 
-            <!-- FORMSPREE FORM -->
+            <!-- FORMSPREE FORM - DENGAN REDIRECT -->
             <form action="https://formspree.io/f/xaqvkjaa" method="POST">
-    <input type="hidden" name="_redirect" value="https://pergerakanarraniry-blip.github.io/PARI/terima-kasih.html">
-    <input type="hidden" name="_subject" value="[PARI] Pesan Baru dari Terminal Suara Rakyat">
+                <!-- REDIRECT KE HALAMAN TERIMA KASIH -->
+                <input type="hidden" name="_redirect" value="https://pergerakanarraniry-blip.github.io/PARI/terima-kasih.html">
+                
+                <!-- SUBJECT EMAIL (opsional, memudahkan baca email) -->
+                <input type="hidden" name="_subject" value="[PARI] Pesan Baru dari Terminal Suara Rakyat">
+                
                 <div class="form-group">
                     <label>📝 KATEGORI PESAN</label>
                     <select name="Kategori" required>
