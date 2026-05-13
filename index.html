@@ -2,12 +2,18 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PARI (Pergerakan Ar-Raniry)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>PARI (Pergerakan Ar-Raniry) | Kedaulatan Nalar</title>
     <link rel="icon" type="image/png" href="LOGO_PARI.png">
     <link rel="stylesheet" href="style.css">
+    <!-- Meta description untuk SEO dan sosial media -->
+    <meta name="description" content="Pergerakan Ar-Raniry (PARI) - Gerakan kedaulatan nalar mahasiswa. Manifes, log aktivitas, arsip karya, dan terminal suara rakyat.">
+    <meta name="author" content="PARI (Pergerakan Ar-Raniry)">
+    <meta name="robots" content="index, follow">
 </head>
 <body>
+
+    <!-- ==================== HEADER / NAVIGASI ==================== -->
     <header>
         <nav class="container">
             <div class="logo-container">
@@ -18,12 +24,14 @@
                 <li><a href="#manifes">Manifes</a></li>
                 <li><a href="#log">Aktivitas</a></li>
                 <li><a href="#karya">Arsip & Karya</a></li>
-                <li><a href="suara-rakyat.html" style="color: #ff0000; text-decoration: none; font-weight: bold; letter-spacing: 2px;">[ TULIS PESAN ]</a></li>
+                <li><a href="suara-rakyat.html" class="nav-highlight">[ TULIS PESAN ]</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+
+        <!-- ==================== HERO SECTION ==================== -->
         <section class="hero">
             <div class="container hero-content">
                 <h1>PERGERAKAN AR-RANIRY</h1>
@@ -31,6 +39,7 @@
             </div>
         </section>
 
+        <!-- ==================== MANIFES PERGERAKAN ==================== -->
         <section id="manifes" class="content">
             <div class="container">
                 <h2>Manifes Pergerakan</h2>
@@ -44,6 +53,7 @@
             </div>
         </section>
 
+        <!-- ==================== LOG AKTIVITAS ==================== -->
         <section id="log" class="content">
             <div class="container">
                 <h2>Log Aktivitas: Operasi Bayangan</h2>
@@ -95,19 +105,23 @@
             </div>
         </section>
 
+        <!-- ==================== ARSIP & KARYA ==================== -->
         <section id="karya" class="content">
             <div class="container">
                 <h2>Arsip & Kolektif Karya</h2>
 
-                <div class="transmission-banner" style="border: 1px solid #4a0000; padding: 25px; background: rgba(74, 0, 0, 0.08); margin-bottom: 40px; text-align: center; position: relative;">
-                    <span style="position: absolute; top: 10px; right: 15px; font-size: 0.6rem; color: #ff0000; letter-spacing: 2px;">SECURE CHANNEL</span>
-                    <h3 style="color: #fff; margin-bottom: 10px; font-style: italic;">Dinding Subversi</h3>
-                    <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 20px;">Punya laporan terkait birokrasi atau gagasan perlawanan? Suarakan secara anonim di terminal ini.</p>
-                    <a href="suara-rakyat.html" class="btn-pari" style="display: inline-block; padding: 12px 30px; background: #4a0000; color: #fff; text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; border: 1px solid #ff0000; font-weight: bold; transition: 0.3s;">MASUK KE TERMINAL SUARA →</a>
+                <!-- DINDING SUBVERSI - TERMINAL SUARA -->
+                <div class="transmission-banner">
+                    <span class="secure-channel-tag">SECURE CHANNEL</span>
+                    <h3 class="banner-title">Dinding Subversi</h3>
+                    <p class="banner-desc">Punya laporan terkait birokrasi atau gagasan perlawanan? Suarakan secara anonim di terminal ini.</p>
+                    <a href="suara-rakyat.html" class="btn-pari">MASUK KE TERMINAL SUARA →</a>
                 </div>
 
+                <!-- GRID KARYA / DOKUMEN -->
                 <div class="karya-grid">
                     
+                    <!-- Kartu 1: Deklarasi Ruang Aman -->
                     <div class="karya-card highlight-urgent">
                         <span>[DOKUMEN.002/ETK]</span>
                         <h3>Deklarasi Ruang Aman</h3>
@@ -115,6 +129,7 @@
                         <a href="ruang-aman.html" class="btn-link">Akses Dokumen</a>
                     </div>
 
+                    <!-- Kartu 2: Manifes Pendidikan -->
                     <div class="karya-card">
                         <span>[DOKUMEN.001/PND]</span>
                         <h3>Manifes Pendidikan</h3>
@@ -122,6 +137,7 @@
                         <a href="manifes-001.html" class="btn-link">Akses Dokumen</a>
                     </div>
 
+                    <!-- Kartu 3: Manifesto PARI 2026 -->
                     <div class="karya-card">
                         <span>[MANIFESTO/2026]</span>
                         <h3>Manifesto PARI 2026</h3>
@@ -129,6 +145,7 @@
                         <a href="manifesto-2026.html" class="btn-link">Akses Dokumen</a>
                     </div>
 
+                    <!-- Kartu 4: Protokol Nalar Otonom -->
                     <div class="karya-card autonomous-net">
                         <span>[DOKUMEN.003/TKT]</span>
                         <h3>Protokol Nalar Otonom</h3>
@@ -136,6 +153,7 @@
                         <a href="protokol-otonom.html" class="btn-link">Buka Berkas</a>
                     </div>
 
+                    <!-- Kartu 5: Perpustakaan Bayangan -->
                     <div class="karya-card biblioteka-style">
                         <span>[BIBLIOTEKA/2026]</span>
                         <h3>Perpustakaan Bayangan</h3>
@@ -147,6 +165,7 @@
             </div>
         </section>
 
+        <!-- ==================== TITIK TEMU INFORMASI ==================== -->
         <section id="kontak" class="content">
             <div class="container">
                 <h2>Titik Temu Informasi</h2>
@@ -167,11 +186,13 @@
         </section>
     </main>
 
+    <!-- ==================== FOOTER ==================== -->
     <footer>
         <div class="container">
             <p>PUBLIKASI RESMI PERGERAKAN AR-RANIRY (PARI) &copy; 2026</p>
-            <p style="margin-top: 5px; opacity: 0.5; font-size: 0.7rem;">DOKUMEN INI BERSIFAT PUBLIK - DISEBARKAN UNTUK KESADARAN KOLEKTIF</p>
+            <p class="footer-note">DOKUMEN INI BERSIFAT PUBLIK - DISEBARKAN UNTUK KESADARAN KOLEKTIF</p>
         </div>
     </footer>
+
 </body>
 </html>
